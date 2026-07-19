@@ -123,174 +123,251 @@
     </div>
 </header>
 
-<!-- Hero Section -->
+<!-- ═══════════════════════════════════════════
+     CINEMATIC HERO — AROGYA SADAN HOSPITAL
+     Full-width cinematic hero with hospital photo
+     as the centerpiece of the design
+     ═══════════════════════════════════════════ -->
 <section class="hero" id="home">
 
-    <!-- Background Image Layers -->
-    <div class="hero-bg-image"></div>
-    <div class="hero-bg-gradient"></div>
-    <div class="hero-bg-pattern"></div>
-
-    <!-- Animated SVG Heartbeat -->
-    <div class="hero-heartbeat">
-        <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-            <path class="hb-line" d="M0,100 L200,100 L240,60 L280,140 L320,80 L360,100 L600,100 L640,60 L680,140 L720,80 L760,100 L1440,100" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2.5"/>
-        </svg>
+    <!-- ═══ MAIN BACKGROUND: Hospital Building Photo (Full Width) ═══ -->
+    <div class="hero-main-bg">
+        <img src="images/hospital-front.webp" alt="আরোগ্য সদন প্রাইভেট হাসপাতাল" class="hero-bg-photo">
+        <div class="hero-bg-overlay"></div>
     </div>
 
-    <!-- Floating Particles -->
+    <!-- ═══ ANIMATED PARTICLES & EFFECTS ═══ -->
     <div class="hero-particles" id="particles"></div>
 
-    <!-- Glowing Orbs -->
-    <div class="hero-orbs">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-        <span class="orb orb-4"></span>
+    <!-- Floating Grid Lines (architectural feel) -->
+    <div class="hero-grid-lines" aria-hidden="true">
+        <span class="grid-line gl-1"></span>
+        <span class="grid-line gl-2"></span>
+        <span class="grid-line gl-3"></span>
     </div>
 
-    <!-- Floating Medical Icons -->
-    <div class="hero-medical-icons">
-        <span class="med-icon" style="--delay:0s; --top:18%; --left:8%;"><i class="fas fa-heartbeat"></i></span>
-        <span class="med-icon" style="--delay:1s; --top:62%; --left:5%;"><i class="fas fa-stethoscope"></i></span>
-        <span class="med-icon" style="--delay:2s; --top:25%; --left:88%;"><i class="fas fa-briefcase-medical"></i></span>
-        <span class="med-icon" style="--delay:3s; --top:75%; --left:92%;"><i class="fas fa-pills"></i></span>
-        <span class="med-icon" style="--delay:1.5s; --top:48%; --left:3%;"><i class="fas fa-syringe"></i></span>
-        <span class="med-icon" style="--delay:2.5s; --top:8%; --left:50%;"><i class="fas fa-hand-holding-medical"></i></span>
-        <span class="med-icon" style="--delay:0.8s; --top:85%; --left:50%;"><i class="fas fa-microscope"></i></span>
-        <span class="med-icon" style="--delay:3.5s; --top:38%; --left:95%;"><i class="fas fa-truck-medical"></i></span>
+    <!-- Animated Rings behind the hospital photo -->
+    <div class="hero-rings" aria-hidden="true">
+        <span class="h-ring ring-1"></span>
+        <span class="h-ring ring-2"></span>
+        <span class="h-ring ring-3"></span>
     </div>
 
-    <div class="container hero-inner">
-
-        <!-- Left: Content -->
-        <div class="hero-content" data-aos="fade-right" data-aos-duration="1200">
-            <span class="hero-badge" data-aos="fade-up" data-aos-delay="100">
-                <span class="badge-dot"></span>
-                <i class="fas fa-shield-heart"></i> ফরিদপুরের আস্থাভাজন স্বাস্থ্যসেবা প্রতিষ্ঠান
+    <!-- Top Emergency Banner -->
+    <div class="hero-emergency-bar">
+        <div class="container hero-emer-inner">
+            <span class="emer-pulse">
+                <span class="pulse-dot"></span>
+                <i class="fas fa-ambulance"></i>
+                <strong>২৪/৭ ইমার্জেন্সি সার্ভিস</strong>
             </span>
-
-            <h1 class="hero-title">
-                <span class="title-line title-line-1" data-aos="fade-up" data-aos-delay="200">আপনার সুস্থতা,</span>
-                <span class="title-line title-line-2" data-aos="fade-up" data-aos-delay="400">আমাদের <span class="title-glow">অঙ্গীকার</span></span>
-            </h1>
-
-            <p class="hero-desc" data-aos="fade-up" data-aos-delay="600">
-                ফরিদপুরের স্বনামধন্য একটি স্বয়ংসম্পূর্ণ প্রাইভেট হাসপাতাল।
-                পরিচ্ছন্ন পরিবেশে আধুনিক চিকিৎসা সরঞ্জাম ও বিশেষজ্ঞ ডাক্তারদের
-                অভিজ্ঞ সেবার মাধ্যমে আমরা মানুষের জীবনে স্বস্তি ও আরোগ্য বয়ে আনতে প্রতিশ্রুতিবদ্ধ।
-            </p>
-
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
-                <a href="#appointment" class="btn btn-primary btn-lg">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>অ্যাপয়েন্টমেন্ট নিন</span>
-                    <span class="btn-shine"></span>
-                </a>
-                <a href="#departments" class="btn btn-outline btn-lg">
-                    <i class="fas fa-stethoscope"></i>
-                    <span>বিভাগ দেখুন</span>
-                </a>
-                <a href="tel:+8801713024800" class="btn btn-ghost btn-lg">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>০১৭১৩-০২৪৮০০</span>
-                </a>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
-                <div class="hero-stat">
-                    <div class="hero-stat-num"><span class="hs-num" data-count="26">0</span><span class="hs-plus">+</span></div>
-                    <div class="hero-stat-label">বিশেষজ্ঞ ডাক্তার</div>
-                </div>
-                <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num"><span class="hs-num" data-count="420">0</span><span class="hs-plus">+</span></div>
-                    <div class="hero-stat-label">দক্ষ জনবল</div>
-                </div>
-                <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num"><span class="hs-num" data-count="50000">0</span><span class="hs-plus">+</span></div>
-                    <div class="hero-stat-label">সন্তুষ্ট রোগী</div>
-                </div>
-                <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num"><span>২৪</span><span class="hs-plus">/৭</span></div>
-                    <div class="hero-stat-label">ইমার্জেন্সি</div>
-                </div>
-            </div>
+            <a href="tel:+8801713024800" class="emer-phone">
+                <i class="fas fa-phone-alt"></i>
+                +৮৮০ ১৭১৩-০২৪৮০০
+            </a>
         </div>
+    </div>
 
-        <!-- Right: Hospital Image Showcase -->
-        <div class="hero-visual" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
+    <!-- ═══ MAIN HERO CONTENT ═══ -->
+    <div class="hero-main-wrap">
+        <div class="container hero-main-grid">
 
-            <!-- Main Hospital Photo -->
-            <div class="hero-img-frame">
-                <div class="hero-img-glow"></div>
-                <img src="images/hospital-front.webp" alt="আরোগ্য সদন প্রাইভেট হাসপাতাল - নীলটুলি, মুজিব সড়ক, ফরিদপুর">
-                <div class="hero-img-tag">
-                    <i class="fas fa-hospital"></i>
-                    <div>
-                        <strong>প্রধান ভবন</strong>
-                        <span>মুজিব সড়ক, নীলটুলী</span>
+            <!-- LEFT: Text Content -->
+            <div class="hero-text-col" data-aos="fade-right" data-aos-duration="1100">
+                <!-- Badge -->
+                <div class="hero-badge" data-aos="fade-up" data-aos-delay="100">
+                    <span class="badge-icon-wrap">
+                        <i class="fas fa-shield-heart"></i>
+                    </span>
+                    <span>ফরিদপুরের স্বনামধন্য স্বাস্থ্যসেবা প্রতিষ্ঠান</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="hero-headline" data-aos="fade-up" data-aos-delay="200">
+                    <span class="hl-sub">আপনার সুস্থতা</span>
+                    <span class="hl-main">
+                        আমাদের
+                        <span class="hl-glow">অঙ্গীকার</span>
+                    </span>
+                </h1>
+
+                <!-- Sub Description -->
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+                    আরোগ্য সদন প্রাইভেট হাসপাতাল — ফরিদপুরের স্বনামধন্য একটি
+                    স্বয়ংসম্পূর্ণ চিকিৎসা কেন্দ্র। পরিচ্ছন্ন পরিবেশে আধুনিক সরঞ্জাম
+                    ও ২৬+ বিশেষজ্ঞ ডাক্তারের অভিজ্ঞ সেবা দিয়ে আমরা আপনার
+                    জীবনে স্বস্তি ও আরোগ্য বয়ে আনতে প্রতিশ্রুতিবদ্ধ।
+                </p>
+
+                <!-- Trust Badges -->
+                <div class="hero-trust-row" data-aos="fade-up" data-aos-delay="500">
+                    <span class="trust-badge">
+                        <i class="fas fa-certificate"></i> সরকার অনুমোদিত
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fas fa-clock"></i> সকাল ৮টা - রাত ১০টা
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fas fa-location-dot"></i> মুজিব সড়ক, নীলটুলি
+                    </span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#appointment" class="btn btn-primary btn-xl">
+                        <span class="btn-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span class="btn-text">
+                            <strong>অ্যাপয়েন্টমেন্ট নিন</strong>
+                            <small>আজকের জন্য</small>
+                        </span>
+                        <span class="btn-shine"></span>
+                    </a>
+                    <a href="#departments" class="btn btn-outline btn-xl">
+                        <span class="btn-icon"><i class="fas fa-stethoscope"></i></span>
+                        <span class="btn-text">
+                            <strong>বিভাগসমূহ</strong>
+                            <small>১৮+ বিভাগ</small>
+                        </span>
+                    </a>
+                    <a href="tel:+8801713024800" class="btn btn-emergency btn-xl">
+                        <span class="btn-icon"><i class="fas fa-phone-volume"></i></span>
+                        <span class="btn-text">
+                            <strong>ইমার্জেন্সি কল</strong>
+                            <small>২৪/৭ সার্ভিস</small>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Stats Strip -->
+                <div class="hero-strip" data-aos="fade-up" data-aos-delay="800">
+                    <div class="hstrip-item">
+                        <span class="hstrip-num"><span class="hs-num" data-count="26">0</span><span class="hstrip-plus">+</span></span>
+                        <span class="hstrip-label">বিশেষজ্ঞ ডাক্তার</span>
+                    </div>
+                    <div class="hstrip-sep"></div>
+                    <div class="hstrip-item">
+                        <span class="hstrip-num"><span class="hs-num" data-count="420">0</span><span class="hstrip-plus">+</span></span>
+                        <span class="hstrip-label">দক্ষ জনবল</span>
+                    </div>
+                    <div class="hstrip-sep"></div>
+                    <div class="hstrip-item">
+                        <span class="hstrip-num"><span class="hs-num" data-count="50000">0</span><span class="hstrip-plus">+</span></span>
+                        <span class="hstrip-label">সন্তুষ্ট রোগী</span>
+                    </div>
+                    <div class="hstrip-sep"></div>
+                    <div class="hstrip-item">
+                        <span class="hstrip-num"><span class="hs-num" data-count="18">0</span><span class="hstrip-plus">+</span></span>
+                        <span class="hstrip-label">বিশেষ বিভাগ</span>
                     </div>
                 </div>
-                <div class="hero-img-status">
-                    <span class="status-dot"></span>
-                    <span>এখন খোলা</span>
-                </div>
             </div>
 
-            <!-- Floating Specialty Cards -->
-            <div class="hero-card-stack">
-                <div class="hero-card hero-card-1">
-                    <div class="hero-card-icon"><i class="fas fa-heart-pulse"></i></div>
-                    <h4>কার্ডিওলজি</h4>
-                    <span>হৃদরোগ চিকিৎসা</span>
-                </div>
-                <div class="hero-card hero-card-2">
-                    <div class="hero-card-icon"><i class="fas fa-brain"></i></div>
-                    <h4>নিউরোলজি</h4>
-                    <span>মস্তিষ্ক ও স্নায়ু</span>
-                </div>
-                <div class="hero-card hero-card-3">
-                    <div class="hero-card-icon"><i class="fas fa-baby"></i></div>
-                    <h4>শিশু বিভাগ</h4>
-                    <span>নবজাতক সেবা</span>
-                </div>
-            </div>
+            <!-- RIGHT: Hospital Photo Showcase -->
+            <div class="hero-photo-col" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
 
-            <!-- Quick Action Card -->
-            <div class="hero-quick-call">
-                <i class="fas fa-phone-volume"></i>
-                <div>
-                    <span>২৪/৭ ইমার্জেন্সি</span>
-                    <a href="tel:+8801713024800">+৮৮০ ১৭১৩-০২৪৮০০</a>
+                <!-- Main Hospital Photo Frame -->
+                <div class="hphoto-main">
+                    <div class="hphoto-glow-ring"></div>
+                    <div class="hphoto-frame">
+                        <img src="images/hospital-front.webp" alt="আরোগ্য সদন প্রাইভেট হাসপাতাল" loading="eager">
+                        <div class="hphoto-overlay"></div>
+                    </div>
+
+                    <!-- Hospital Info Badge -->
+                    <div class="hphoto-info-badge">
+                        <div class="hpib-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="hpib-text">
+                            <strong>আরোগ্য সদন</strong>
+                            <span>প্রাইভেট হাসপাতাল</span>
+                            <span class="hpib-loc"><i class="fas fa-location-dot"></i> মুজিব সড়ক, নীলটুলি, ফরিদপুর</span>
+                        </div>
+                    </div>
+
+                    <!-- Open Status -->
+                    <div class="hphoto-open-badge">
+                        <span class="open-dot"></span>
+                        <span>এখন খোলা আছে</span>
+                    </div>
+
+                    <!-- Department Count -->
+                    <div class="hphoto-dept-badge">
+                        <div class="hpdb-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="hpdb-text">
+                            <strong>১৮+</strong>
+                            <span>বিশেষ বিভাগ</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Floating Dept Cards -->
+                <div class="hphoto-cards">
+                    <div class="hpcard hpcard-1" data-aos="fade-up" data-aos-delay="500">
+                        <div class="hpcard-icon"><i class="fas fa-heart-pulse"></i></div>
+                        <div class="hpcard-text">
+                            <strong>কার্ডিওলজি</strong>
+                            <span>হৃদরোগ বিশেষজ্ঞ</span>
+                        </div>
+                    </div>
+                    <div class="hpcard hpcard-2" data-aos="fade-up" data-aos-delay="650">
+                        <div class="hpcard-icon"><i class="fas fa-brain"></i></div>
+                        <div class="hpcard-text">
+                            <strong>নিউরোলজি</strong>
+                            <span>মস্তিষ্ক ও স্নায়ু</span>
+                        </div>
+                    </div>
+                    <div class="hpcard hpcard-3" data-aos="fade-up" data-aos-delay="800">
+                        <div class="hpcard-icon"><i class="fas fa-baby"></i></div>
+                        <div class="hpcard-text">
+                            <strong>গাইনি ও শিশু</strong>
+                            <span>মা ও শিশু সেবা</span>
+                        </div>
+                    </div>
+                    <div class="hpcard hpcard-4" data-aos="fade-up" data-aos-delay="950">
+                        <div class="hpcard-icon"><i class="fas fa-bone"></i></div>
+                        <div class="hpcard-text">
+                            <strong>অর্থোপেডিক্স</strong>
+                            <span>হাড় ও জয়েন্ট</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Floating Highlights Bar -->
-    <div class="hero-features-bar">
+    <!-- ═══ BOTTOM FEATURES BAR ═══ -->
+    <div class="hero-bottom-bar">
         <div class="container">
-            <div class="hf-bar-inner">
-                <div class="hf-tag" data-aos="fade-up" data-aos-delay="1100">
-                    <i class="fas fa-circle-check"></i> <span>বিশেষায়িত হৃদরোগ বিভাগ</span>
+            <div class="hbb-inner">
+                <div class="hbb-item" data-aos="fade-up" data-aos-delay="900">
+                    <span class="hbb-icon"><i class="fas fa-heartbeat"></i></span>
+                    <span>বিশেষায়িত হৃদরোগ বিভাগ</span>
                 </div>
-                <div class="hf-tag" data-aos="fade-up" data-aos-delay="1150">
-                    <i class="fas fa-circle-check"></i> <span>সার্বক্ষণিক কার্ডিয়াক ইউনিট</span>
+                <div class="hbb-sep"></div>
+                <div class="hbb-item" data-aos="fade-up" data-aos-delay="950">
+                    <span class="hbb-icon"><i class="fas fa-clock"></i></span>
+                    <span>সার্বক্ষণিক কার্ডিয়াক ইউনিট</span>
                 </div>
-                <div class="hf-tag" data-aos="fade-up" data-aos-delay="1200">
-                    <i class="fas fa-circle-check"></i> <span>অভিজ্ঞ বিশেষজ্ঞ ডাক্তার</span>
+                <div class="hbb-sep"></div>
+                <div class="hbb-item" data-aos="fade-up" data-aos-delay="1000">
+                    <span class="hbb-icon"><i class="fas fa-user-md"></i></span>
+                    <span>অভিজ্ঞ বিশেষজ্ঞ ডাক্তার</span>
                 </div>
-                <div class="hf-tag" data-aos="fade-up" data-aos-delay="1250">
-                    <i class="fas fa-circle-check"></i> <span>পরিচ্ছন্ন রোগী-বান্ধব পরিবেশ</span>
+                <div class="hbb-sep"></div>
+                <div class="hbb-item" data-aos="fade-up" data-aos-delay="1050">
+                    <span class="hbb-icon"><i class="fas fa-microscope"></i></span>
+                    <span>আধুনিক ডায়াগনস্টিক</span>
+                </div>
+                <div class="hbb-sep"></div>
+                <div class="hbb-item" data-aos="fade-up" data-aos-delay="1100">
+                    <span class="hbb-icon"><i class="fas fa-bed"></i></span>
+                    <span>আরামদায়ক রোগী বিছানা</span>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ═══ SCROLL INDICATOR ═══ -->
     <div class="scroll-indicator">
         <div class="mouse">
             <div class="wheel"></div>
@@ -298,9 +375,10 @@
         <span>স্ক্রল করুন</span>
     </div>
 
+    <!-- ═══ WAVE BOTTOM ═══ -->
     <div class="hero-wave">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,60 C320,120 720,0 1440,60 L1440,120 L0,120 Z" fill="#ffffff"></path>
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+            <path d="M0,70 C240,140 480,0 720,70 C960,140 1200,0 1440,70 L1440,140 L0,140 Z" fill="#ffffff"></path>
         </svg>
     </div>
 </section>
