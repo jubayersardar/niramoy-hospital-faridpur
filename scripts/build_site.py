@@ -1,11 +1,145 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8" />
+# -*- coding: utf-8 -*-
+"""Build all 9 pages of NIRAMAYA Hospital multi-page site."""
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__))
+from generate_doctors import DOCTORS, DEPT_COLOR
+
+WEB = r"D:\minimax\New folder\website"
+PAGES = {
+    "index":         os.path.join(WEB, "index.html"),
+    "about":         os.path.join(WEB, "about.html"),
+    "departments":   os.path.join(WEB, "departments.html"),
+    "doctors":       os.path.join(WEB, "doctors.html"),
+    "services":      os.path.join(WEB, "services.html"),
+    "diagnostic":    os.path.join(WEB, "diagnostic.html"),
+    "gallery":       os.path.join(WEB, "gallery.html"),
+    "contact":       os.path.join(WEB, "contact.html"),
+    "appointment":   os.path.join(WEB, "appointment.html"),
+}
+
+# ----------------------------------------------------------------------
+# Common partials
+# ----------------------------------------------------------------------
+
+NAV = '''      <li class="nav-item"><a class="nav-link __ACTIVE_HOME__" href="index.html">হোম</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_ABOUT__" href="about.html">আমাদের সম্পর্কে</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_DEPT__" href="departments.html">বিভাগসমূহ</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_DOCS__" href="doctors.html">ডাক্তারগণ</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_SERV__" href="services.html">সেবাসমূহ</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_DIAG__" href="diagnostic.html">ডায়াগনস্টিক</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_GAL__" href="gallery.html">গ্যালারি</a></li>
+      <li class="nav-item"><a class="nav-link __ACTIVE_CONTACT__" href="contact.html">যোগাযোগ</a></li>
+      <li class="nav-item"><a class="btn btn-accent" href="appointment.html"><i class="fa-regular fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li>'''
+
+TOPBAR = '''<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
+        <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
+        <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
+        <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
+        <span class="topbar-social">
+          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>'''
+
+HEADER = '''<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <img src="niramoy-logo.png" alt="নিরাময় হাসপাতাল লোগো" />
+        </div>
+        <div class="logo-text">
+          <span class="bn">নিরাময় হাসপাতাল</span>
+          <span class="en">NIRAMAYA Hospital &amp; Diagnostic Center</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">__NAV__</ul>
+        <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </nav>
+    </div>
+  </div>
+</header>'''
+
+FOOTER = '''<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <div class="logo-mark">
+            <img src="niramoy-logo.png" alt="NIRAMAYA Hospital" />
+          </div>
+          <div>
+            <div class="bn">নিরাময় হাসপাতাল</div>
+            <div class="en">NIRAMAYA Hospital &amp; Diagnostic Center</div>
+          </div>
+        </div>
+        <p>১৯৯৯ সাল থেকে ফরিদপুরবাসীর সেবায় নিবেদিত — আধুনিক চিকিৎসা, অভিজ্ঞ বিশেষজ্ঞ ও নির্ভরযোগ্য ডায়াগনস্টিক সেবা।</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>কুইক লিংক</h4>
+        <ul>
+          <li><a href="index.html">হোম</a></li>
+          <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+          <li><a href="departments.html">বিভাগসমূহ</a></li>
+          <li><a href="doctors.html">ডাক্তারগণ</a></li>
+          <li><a href="services.html">সেবাসমূহ</a></li>
+          <li><a href="diagnostic.html">ডায়াগনস্টিক</a></li>
+          <li><a href="gallery.html">গ্যালারি</a></li>
+          <li><a href="contact.html">যোগাযোগ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>বিভাগসমূহ</h4>
+        <ul>
+          <li><a href="departments.html#med">মেডিসিন</a></li>
+          <li><a href="departments.html#surg">সার্জারি</a></li>
+          <li><a href="departments.html#gynae">গাইনী ও প্রসূতি</a></li>
+          <li><a href="departments.html#ortho">অর্থোপেডিক্স</a></li>
+          <li><a href="departments.html#ent">ইএনটি</a></li>
+          <li><a href="departments.html#derma">চর্ম ও যৌন</a></li>
+          <li><a href="departments.html#sono">আল্ট্রাসনোগ্রাফি</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <p><i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:6px;"></i> নিরাময় ভবন, পশ্চিম খাবাসপুর, ফরিদপুর</p>
+        <p><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801729171549" style="color:rgba(255,255,255,0.65);">+৮৮০১৭২৯-১৭১৫৪৯</a></p>
+        <p><i class="fa-solid fa-truck-medical" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801731827110" style="color:rgba(255,255,255,0.65);">+৮৮০১৭৩১-৮২৭১১০ (24/7)</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> নিরাময় হাসপাতাল এন্ড ডায়াগনস্টিক সেন্টার (প্রা:)। সকল অধিকার সংরক্ষিত।</p>
+    </div>
+  </div>
+</footer>'''
+
+FAB = '''<div class="fab-wrap">
+  <a class="fab fab-top" id="scrollTop" href="#top" aria-label="উপরে যান"><i class="fa-solid fa-chevron-up"></i></a>
+  <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
+</div>'''
+
+HEAD_BASE = '''<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>নিরাময় হাসপাতাল | নিরাময় হাসপাতাল</title>
-<meta name="description" content="নিরাময় হাসপাতাল এন্ড ডায়াগনস্টিক সেন্টার, ফরিদপুর। ১৪+ বিশেষজ্ঞ চিকিৎসক, ২৪/৭ ইমার্জেন্সি, আধুনিক ডায়াগনস্টিক।" />
+<title>__TITLE__ | নিরাময় হাসপাতাল</title>
+<meta name="description" content="__DESCRIPTION__" />
 <meta name="robots" content="index, follow" />
 <link rel="icon" type="image/png" href="niramoy-logo.png" />
 <link rel="apple-touch-icon" href="niramoy-logo.png" />
@@ -14,8 +148,143 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <link rel="stylesheet" href="css/style.css" />
+__PAGE_CSS__'''
 
-<style>
+SCRIPTS = '''<script src="js/site.js"></script>__PAGE_JS__'''
+
+
+def make_header(active_page):
+    """Return header HTML with the given page highlighted."""
+    nav = NAV
+    # Set active class
+    for key, marker in [
+        ("HOME", "index"), ("ABOUT", "about"), ("DEPT", "departments"),
+        ("DOCS", "doctors"), ("SERV", "services"), ("DIAG", "diagnostic"),
+        ("GAL", "gallery"), ("CONTACT", "contact"),
+    ]:
+        if active_page == marker:
+            nav = nav.replace(f"__ACTIVE_{key}__", "active")
+        else:
+            nav = nav.replace(f"__ACTIVE_{key}__", "")
+    return HEADER.replace("__NAV__", nav)
+
+
+def make_page(title, description, active_page, body, page_css="", page_js=""):
+    """Compose a full HTML page."""
+    head = HEAD_BASE.replace("__TITLE__", title)
+    head = head.replace("__DESCRIPTION__", description)
+    head = head.replace("__PAGE_CSS__", f"\n<style>{page_css}</style>\n" if page_css else "")
+
+    scripts = SCRIPTS.replace("__PAGE_JS__", f"\n<script>{page_js}</script>\n" if page_js else "")
+
+    return f'''<!DOCTYPE html>
+<html lang="bn">
+<head>
+{head}
+</head>
+<body>
+{TOPBAR}
+{make_header(active_page)}
+
+{body}
+
+{FOOTER}
+{FAB}
+{scripts}
+</body>
+</html>
+'''
+
+
+# ----------------------------------------------------------------------
+# Page: index.html (Home)
+# ----------------------------------------------------------------------
+
+def doctor_card(d, page="index"):
+    n = d["num"]; name = d["name"]; deg = d["deg_short"]
+    desig = d["desig"]; affil = d["affil"]; spec = d["spec"]
+    initial = d["initial"]; dept_class = d["dept_class"]; dept = d["dept"]
+    return f'''      <div class="doctor-card reveal">
+        <a href="doctors/{n}.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
+          <div class="doctor-photo bg-{dept_class}">
+            <span class="dept-tag">{dept}</span>
+            <img src="images/doctors/{n}-{d["num"]}-{d.get("slug", "")}.jpg" alt="" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
+            <div class="avatar" style="display:none;">{initial}</div>
+          </div>
+        </a>
+        <div class="doctor-info">
+          <h3>{name}</h3>
+          <p class="deg">{deg}</p>
+          <p class="designation">{desig}</p>
+          <div class="doctor-actions">
+            <a href="doctors/{n}.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
+          </div>
+        </div>
+      </div>
+'''
+
+
+# Build doctor image path with correct extension
+def doctor_img_filename(num, name):
+    """Build image path with detected extension."""
+    import os
+    for ext in ('jpg', 'png', 'jpeg', 'webp'):
+        p = os.path.join(WEB, "images", "doctors", f"{num}-{name}.{ext}")
+        if os.path.isfile(p):
+            return f"images/doctors/{num}-{name}.{ext}"
+    return f"images/doctors/{num}-{name}.jpg"
+
+
+# Slug mapping for doctor image filenames
+DOCTOR_SLUGS = {
+    "01": "abu-bakar",   "02": "riyad-bappy", "03": "shrabanti",
+    "04": "moin-uddin",  "05": "shashank-nag","06": "rafiqul-islam",
+    "07": "utpal-nag",   "08": "sourav",      "09": "nahid-badsha",
+    "10": "harichand-shil","11": "imtiaz-uddin","12": "papri-sarker",
+    "13": "nurul-alam",  "14": "shankar-dey",
+}
+
+
+def doctor_card_v2(d):
+    """Card with correct image path."""
+    n = d["num"]; name = d["name"]; deg = d["deg_short"]
+    desig = d["desig"]; spec = d["spec"]
+    initial = d["initial"]; dept_class = d["dept_class"]; dept = d["dept"]
+    slug = DOCTOR_SLUGS.get(n, "")
+    # Find correct extension
+    import os
+    img_path = f"images/doctors/{n}-{slug}.jpg"
+    for ext in ('jpg', 'png', 'jpeg', 'webp'):
+        p = os.path.join(WEB, "images", "doctors", f"{n}-{slug}.{ext}")
+        if os.path.isfile(p):
+            img_path = f"images/doctors/{n}-{slug}.{ext}"
+            break
+    return f'''      <div class="doctor-card reveal">
+        <a href="doctors/{n}.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
+          <div class="doctor-photo bg-{dept_class}">
+            <span class="dept-tag">{dept}</span>
+            <img src="{img_path}" alt="{name}" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
+            <div class="avatar" style="display:none;">{initial}</div>
+          </div>
+        </a>
+        <div class="doctor-info">
+          <h3>{name}</h3>
+          <p class="deg">{deg}</p>
+          <p class="designation">{desig}</p>
+          <div class="doctor-actions">
+            <a href="doctors/{n}.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
+          </div>
+        </div>
+      </div>
+'''
+
+
+# ----------------------------------------------------------------------
+# Build pages
+# ----------------------------------------------------------------------
+
+# ===== Common page-specific CSS (per page) =====
+HOME_CSS = r"""
 .hero-clean {
   position: relative;
   background: #001a33;
@@ -310,58 +579,33 @@
   .doctor-photo{height:200px}
   .doctor-photo .avatar{width:130px;height:130px;font-size:3rem}
 }
-</style>
+"""
 
-</head>
-<body>
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-inner">
-      <div class="topbar-left">
-        <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
-        <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
-        <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
-        <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
-      </div>
-      <div class="topbar-right">
-        <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
-        <span class="topbar-social">
-          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-<header class="header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-mark">
-          <img src="niramoy-logo.png" alt="নিরাময় হাসপাতাল লোগো" />
-        </div>
-        <div class="logo-text">
-          <span class="bn">নিরাময় হাসপাতাল</span>
-          <span class="en">NIRAMAYA Hospital &amp; Diagnostic Center</span>
-        </div>
-      </a>
-      <nav class="nav">
-        <ul class="nav-list">      <li class="nav-item"><a class="nav-link active" href="index.html">হোম</a></li>
-      <li class="nav-item"><a class="nav-link " href="about.html">আমাদের সম্পর্কে</a></li>
-      <li class="nav-item"><a class="nav-link " href="departments.html">বিভাগসমূহ</a></li>
-      <li class="nav-item"><a class="nav-link " href="doctors.html">ডাক্তারগণ</a></li>
-      <li class="nav-item"><a class="nav-link " href="services.html">সেবাসমূহ</a></li>
-      <li class="nav-item"><a class="nav-link " href="diagnostic.html">ডায়াগনস্টিক</a></li>
-      <li class="nav-item"><a class="nav-link " href="gallery.html">গ্যালারি</a></li>
-      <li class="nav-item"><a class="nav-link " href="contact.html">যোগাযোগ</a></li>
-      <li class="nav-item"><a class="btn btn-accent" href="appointment.html"><i class="fa-regular fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li></ul>
-        <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-      </nav>
-    </div>
-  </div>
-</header>
+DEPT_LIST_HOME = [
+    ("med",    "মেডিসিন",      "মেডিসিন বিশেষজ্ঞ পরামর্শ, ডায়াবেটিস, উচ্চ রক্তচাপ, হৃদরোগ"),
+    ("surg",   "সার্জারি",     "জেনারেল ও ল্যাপারোস্কোপিক সার্জারি, কলোরেক্টাল, ইউরোলজি"),
+    ("gynae",  "গাইনি ও প্রসূতি", "বন্ধ্যাত্ব, নরমাল ও সিজারিয়ান ডেলিভারি, মাসিক সমস্যা"),
+    ("ortho",  "অর্থোপেডিক্স",   "হাড়-জোড়া, ফ্র্যাকচার, ট্রমা, বাতব্যথা, স্পোর্টস ইনজুরি"),
+    ("ent",    "ইএনটি",         "নাক-কান-গলা, টনসিল, সাইনাস, হেড-নেক সার্জারি"),
+    ("derma",  "চর্ম ও যৌন",   "এক্সিমা, সোরিয়াসিস, এলার্জি, যৌন রোগ, ব্রণ"),
+    ("gp",     "জেনারেল প্র্যাকটিশনার", "সব ধরনের সাধারণ রোগ, শিশু, মাইনর সার্জারি"),
+    ("sono",   "আল্ট্রাসনোগ্রাফি", "সম্পূর্ণ USG, গর্ভাবস্থা, কিডনি-লিভার"),
+]
 
 
+def build_index():
+    # 6 featured doctors (first 6)
+    featured_cards = "\n".join(doctor_card_v2(d) for d in DOCTORS[:6])
+    dept_cards = "\n".join(
+        f'      <a href="departments.html#{cls}" class="dept-card">\n'
+        f'        <div class="dept-icon bg-{cls}"><i class="fa-solid fa-stethoscope"></i></div>\n'
+        f'        <h3>{name}</h3>\n'
+        f'        <p>{desc}</p>\n'
+        f'        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>\n'
+        f'      </a>\n'
+        for cls, name, desc in DEPT_LIST_HOME
+    )
+    body = f'''
 <!-- Hero -->
 <section class="hero-clean" id="home">
   <!-- Background Image Slides (Indoor Medical Rooms & Equipment) -->
@@ -511,62 +755,7 @@
       <p class="section-subtitle">সব বিভাগে অভিজ্ঞ বিশেষজ্ঞ চিকিৎসক ও আধুনিক সেবা</p>
     </div>
     <div class="dept-grid">
-      <a href="departments.html#med" class="dept-card">
-        <div class="dept-icon bg-med"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>মেডিসিন</h3>
-        <p>মেডিসিন বিশেষজ্ঞ পরামর্শ, ডায়াবেটিস, উচ্চ রক্তচাপ, হৃদরোগ</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#surg" class="dept-card">
-        <div class="dept-icon bg-surg"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>সার্জারি</h3>
-        <p>জেনারেল ও ল্যাপারোস্কোপিক সার্জারি, কলোরেক্টাল, ইউরোলজি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#gynae" class="dept-card">
-        <div class="dept-icon bg-gynae"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>গাইনি ও প্রসূতি</h3>
-        <p>বন্ধ্যাত্ব, নরমাল ও সিজারিয়ান ডেলিভারি, মাসিক সমস্যা</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#ortho" class="dept-card">
-        <div class="dept-icon bg-ortho"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>অর্থোপেডিক্স</h3>
-        <p>হাড়-জোড়া, ফ্র্যাকচার, ট্রমা, বাতব্যথা, স্পোর্টস ইনজুরি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#ent" class="dept-card">
-        <div class="dept-icon bg-ent"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>ইএনটি</h3>
-        <p>নাক-কান-গলা, টনসিল, সাইনাস, হেড-নেক সার্জারি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#derma" class="dept-card">
-        <div class="dept-icon bg-derma"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>চর্ম ও যৌন</h3>
-        <p>এক্সিমা, সোরিয়াসিস, এলার্জি, যৌন রোগ, ব্রণ</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#gp" class="dept-card">
-        <div class="dept-icon bg-gp"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>জেনারেল প্র্যাকটিশনার</h3>
-        <p>সব ধরনের সাধারণ রোগ, শিশু, মাইনর সার্জারি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
-      <a href="departments.html#sono" class="dept-card">
-        <div class="dept-icon bg-sono"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>আল্ট্রাসনোগ্রাফি</h3>
-        <p>সম্পূর্ণ USG, গর্ভাবস্থা, কিডনি-লিভার</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
-      </a>
-
+{dept_cards}
     </div>
     <div class="view-all-wrap">
       <a href="departments.html" class="btn btn-primary"><i class="fa-solid fa-th-large"></i> সব বিভাগ দেখুন</a>
@@ -583,114 +772,7 @@
       <p class="section-subtitle">ফরিদপুরের স্বনামধন্য প্রতিষ্ঠানের বিশেষজ্ঞ চিকিৎসকগণ</p>
     </div>
     <div class="doctors-grid">
-      <div class="doctor-card reveal">
-        <a href="doctors/01.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/01-abu-bakar.jpg" alt="ডা. আবু বকর সিদ্দিক" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">আ</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. আবু বকর সিদ্দিক</h3>
-          <p class="deg">MBBS, BCS, MD (Internal Medicine)</p>
-          <p class="designation">সহকারী অধ্যাপক, মেডিসিন বিভাগ</p>
-          <div class="doctor-actions">
-            <a href="doctors/01.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/02.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/02-riyad-bappy.jpg" alt="ডা. মোঃ রিয়াদ হোসেন বাপ্পি" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">রি</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. মোঃ রিয়াদ হোসেন বাপ্পি</h3>
-          <p class="deg">MBBS, BCS, CCD, FCPS (মেডিসিন)</p>
-          <p class="designation">সহকারী রেজিস্টার, মেডিসিন বিভাগ</p>
-          <div class="doctor-actions">
-            <a href="doctors/02.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/03.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-gynae">
-            <span class="dept-tag">গাইনি ও প্রসূতি</span>
-            <img src="images/doctors/03-shrabanti.png" alt="ডা. শ্রাবন্তী এম ইসলাম" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">শ্রা</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. শ্রাবন্তী এম ইসলাম</h3>
-          <p class="deg">MBBS, BCS, MCPS, FCPS, MRCOG (শেষ বর্ষ)</p>
-          <p class="designation">কনসালটেন্ট, গাইনি ও প্রসূতি</p>
-          <div class="doctor-actions">
-            <a href="doctors/03.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/04.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-ortho">
-            <span class="dept-tag">অর্থোপেডিক্স</span>
-            <img src="images/doctors/04-moin-uddin.jpg" alt="ডা. মো. মঈন উদ্দিন" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">মই</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. মো. মঈন উদ্দিন</h3>
-          <p class="deg">MBBS, D-Ortho, FCPS (USA)</p>
-          <p class="designation">সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, অর্থোপেডিক বিভাগ</p>
-          <div class="doctor-actions">
-            <a href="doctors/04.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/05.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/05-shashank-nag.jpg" alt="ডা. শশাঙ্ক নাগ (সনেট)" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">শ</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. শশাঙ্ক নাগ (সনেট)</h3>
-          <p class="deg">MBBS, CCD, DMU, PGT</p>
-          <p class="designation">মেডিসিন, ডায়াবেটিস ও রোগ বিশেষজ্ঞ</p>
-          <div class="doctor-actions">
-            <a href="doctors/05.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/06.html" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/06-rafiqul-islam.jpg" alt="ডা. মোহাম্মদ রফিকুল ইসলাম" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">রফ</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. মোহাম্মদ রফিকুল ইসলাম</h3>
-          <p class="deg">MBBS, MPH, CCD, PHD (USA)</p>
-          <p class="designation">সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, কমিউনিটি মেডিসিন</p>
-          <div class="doctor-actions">
-            <a href="doctors/06.html" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল দেখুন</a>
-          </div>
-        </div>
-      </div>
-
+{featured_cards}
     </div>
     <div class="view-all-wrap">
       <a href="doctors.html" class="btn btn-primary"><i class="fa-solid fa-user-doctor"></i> সকল ১৪ জন ডাক্তার দেখুন</a>
@@ -751,70 +833,21 @@
     </div>
   </div>
 </section>
+'''
+    return make_page(
+        title="নিরাময় হাসপাতাল",
+        description="নিরাময় হাসপাতাল এন্ড ডায়াগনস্টিক সেন্টার, ফরিদপুর। ১৪+ বিশেষজ্ঞ চিকিৎসক, ২৪/৭ ইমার্জেন্সি, আধুনিক ডায়াগনস্টিক।",
+        active_page="index",
+        body=body,
+        page_css=HOME_CSS
+    )
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="footer-logo">
-          <div class="logo-mark">
-            <img src="niramoy-logo.png" alt="NIRAMAYA Hospital" />
-          </div>
-          <div>
-            <div class="bn">নিরাময় হাসপাতাল</div>
-            <div class="en">NIRAMAYA Hospital &amp; Diagnostic Center</div>
-          </div>
-        </div>
-        <p>১৯৯৯ সাল থেকে ফরিদপুরবাসীর সেবায় নিবেদিত — আধুনিক চিকিৎসা, অভিজ্ঞ বিশেষজ্ঞ ও নির্ভরযোগ্য ডায়াগনস্টিক সেবা।</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>কুইক লিংক</h4>
-        <ul>
-          <li><a href="index.html">হোম</a></li>
-          <li><a href="about.html">আমাদের সম্পর্কে</a></li>
-          <li><a href="departments.html">বিভাগসমূহ</a></li>
-          <li><a href="doctors.html">ডাক্তারগণ</a></li>
-          <li><a href="services.html">সেবাসমূহ</a></li>
-          <li><a href="diagnostic.html">ডায়াগনস্টিক</a></li>
-          <li><a href="gallery.html">গ্যালারি</a></li>
-          <li><a href="contact.html">যোগাযোগ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>বিভাগসমূহ</h4>
-        <ul>
-          <li><a href="departments.html#med">মেডিসিন</a></li>
-          <li><a href="departments.html#surg">সার্জারি</a></li>
-          <li><a href="departments.html#gynae">গাইনী ও প্রসূতি</a></li>
-          <li><a href="departments.html#ortho">অর্থোপেডিক্স</a></li>
-          <li><a href="departments.html#ent">ইএনটি</a></li>
-          <li><a href="departments.html#derma">চর্ম ও যৌন</a></li>
-          <li><a href="departments.html#sono">আল্ট্রাসনোগ্রাফি</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>যোগাযোগ</h4>
-        <p><i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:6px;"></i> নিরাময় ভবন, পশ্চিম খাবাসপুর, ফরিদপুর</p>
-        <p><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801729171549" style="color:rgba(255,255,255,0.65);">+৮৮০১৭২৯-১৭১৫৪৯</a></p>
-        <p><i class="fa-solid fa-truck-medical" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801731827110" style="color:rgba(255,255,255,0.65);">+৮৮০১৭৩১-৮২৭১১০ (24/7)</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year">2026</span> নিরাময় হাসপাতাল এন্ড ডায়াগনস্টিক সেন্টার (প্রা:)। সকল অধিকার সংরক্ষিত।</p>
-    </div>
-  </div>
-</footer>
-<div class="fab-wrap">
-  <a class="fab fab-top" id="scrollTop" href="#top" aria-label="উপরে যান"><i class="fa-solid fa-chevron-up"></i></a>
-  <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
-</div>
-<script src="js/site.js"></script>
-</body>
-</html>
+# ----------------------------------------------------------------------
+# Other pages to be built in separate files
+# ----------------------------------------------------------------------
+
+print("Building index.html...")
+with open(PAGES["index"], "w", encoding="utf-8") as f:
+    f.write(build_index())
+print(f"  [OK] {PAGES['index']} ({os.path.getsize(PAGES['index']):,} bytes)")

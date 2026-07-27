@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>বিভাগসমূহ | নিরাময় হাসপাতাল</title>
+<meta name="description" content="নিরাময় হাসপাতালের ৮টি বিশেষায়িত বিভাগ — মেডিসিন, সার্জারি, গাইনি, অর্থোপেডিক্স, ইএনটি, চর্ম, জেনারেল প্র্যাকটিশনার ও আল্ট্রাসনোগ্রাফি।" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" href="niramoy-logo.png" />
+<link rel="apple-touch-icon" href="niramoy-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+.dept-detail{padding:80px 0;border-bottom:1px solid var(--border);scroll-margin-top:80px}
+.dept-detail:nth-child(even){background:var(--bg-soft)}
+.dept-detail-head{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;margin-bottom:36px}
+.dept-detail-icon{width:90px;height:90px;border-radius:22px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.4rem;flex-shrink:0;box-shadow:var(--shadow-md)}
+.dept-detail h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px}
+.dept-detail .tagline{color:var(--accent);font-weight:600;font-size:0.95rem;margin-bottom:14px}
+.dept-detail .lead{color:var(--text-muted);font-size:1.02rem;line-height:1.7;margin-bottom:24px}
+.dept-detail-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:30px}
+.dept-services{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.dept-services h3,.dept-doctors-mini h3{font-size:1.1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;color:var(--primary)}
+.dept-services h3 i,.dept-doctors-mini h3 i{color:var(--accent)}
+.dept-services ul{list-style:none;padding:0;margin:0}
+.dept-services ul li{padding:8px 0 8px 26px;position:relative;color:var(--text-muted);font-size:0.92rem;border-bottom:1px dashed var(--border)}
+.dept-services ul li:last-child{border-bottom:none}
+.dept-services ul li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--accent);position:absolute;left:0;top:8px;font-size:0.78rem}
+.dept-doctors-mini{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.dept-doc-list{display:flex;flex-direction:column;gap:12px}
+.dept-doc-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;background:var(--bg-soft);text-decoration:none;color:inherit;transition:all var(--transition)}
+.dept-doc-item:hover{background:var(--primary-light);transform:translateX(4px)}
+.dept-doc-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+.dept-doc-info h4{font-size:0.92rem;margin-bottom:2px;line-height:1.2}
+.dept-doc-info p{font-size:0.78rem;color:var(--text-muted);margin:0}
+.dept-tech-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.dept-tech-pill{padding:5px 12px;background:var(--primary-light);color:var(--primary);border-radius:50px;font-size:0.78rem;font-weight:600}
+@media (max-width:768px){.dept-detail-head{grid-template-columns:1fr;text-align:center}.dept-detail-icon{margin:0 auto}.dept-detail-grid{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
+        <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
+        <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
+        <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
+        <span class="topbar-social">
+          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <img src="niramoy-logo.png" alt="নিরাময় হাসপাতাল লোগো" />
+        </div>
+        <div class="logo-text">
+          <span class="bn">নিরাময় হাসপাতাল</span>
+          <span class="en">NIRAMAYA Hospital &amp; Diagnostic Center</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">      <li class="nav-item"><a class="nav-link " href="index.html">হোম</a></li>
+      <li class="nav-item"><a class="nav-link " href="about.html">আমাদের সম্পর্কে</a></li>
+      <li class="nav-item"><a class="nav-link active" href="departments.html">বিভাগসমূহ</a></li>
+      <li class="nav-item"><a class="nav-link " href="doctors.html">ডাক্তারগণ</a></li>
+      <li class="nav-item"><a class="nav-link " href="services.html">সেবাসমূহ</a></li>
+      <li class="nav-item"><a class="nav-link " href="diagnostic.html">ডায়াগনস্টিক</a></li>
+      <li class="nav-item"><a class="nav-link " href="gallery.html">গ্যালারি</a></li>
+      <li class="nav-item"><a class="nav-link " href="contact.html">যোগাযোগ</a></li>
+      <li class="nav-item"><a class="btn btn-accent" href="appointment.html"><i class="fa-regular fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li></ul>
+        <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <span class="hero-eyebrow"><i class="fa-solid fa-th-large"></i> বিশেষায়িত বিভাগ</span>
+      <h1>আমাদের বিভাগসমূহ</h1>
+      <p>৮টি বিশেষায়িত বিভাগে ১৪+ বিশেষজ্ঞ চিকিৎসক — সব ধরনের রোগের সমন্বিত চিকিৎসা</p>
+    </div>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">হোম</a> <span class="sep">›</span>
+    <span class="current">বিভাগসমূহ</span>
+  </div>
+</div>
+
+
+<section class="dept-detail" id="med">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-med"><i class="fa-solid fa-stethoscope"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>মেডিসিন বিভাগ</h2>
+        <p class="tagline">অভ্যন্তরীণ রোগের সমন্বিত চিকিৎসা</p>
+      </div>
+    </div>
+    <p class="lead">মেডিসিন বিভাগ ডায়াবেটিস, উচ্চ রক্তচাপ, হৃদরোগ, বক্ষব্যাধি, কিডনি-লিভারের সমস্যাসহ সব ধরনের অভ্যন্তরীণ রোগের সমন্বিত চিকিৎসা প্রদান করে। অভিজ্ঞ মেডিসিন বিশেষজ্ঞগণ আধুনিক চিকিৎসা পদ্ধতি ও প্রযুক্তি ব্যবহার করে রোগীদের সেবা দেন।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>মেডিসিন বিশেষজ্ঞ পরামর্শ ও চিকিৎসা</li>
+          <li>ডায়াবেটিস নিয়ন্ত্রণ ও ব্যবস্থাপনা</li>
+          <li>হৃদরোগের চিকিৎসা ও পরামর্শ</li>
+          <li>বক্ষব্যাধি (হাঁপানি, ব্রংকাইটিস, নিউমোনিয়া)</li>
+          <li>উচ্চ রক্তচাপ ব্যবস্থাপনা</li>
+          <li>কিডনি ও লিভার রোগ</li>
+          <li>থাইরয়েড ও হরমোনজনিত সমস্যা</li>
+          <li>রক্তস্বল্পতা ও পুষ্টিজনিত সমস্যা</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">ECG</span>
+          <span class="dept-tech-pill">ইকো</span>
+          <span class="dept-tech-pill">রক্ত পরীক্ষা</span>
+          <span class="dept-tech-pill">HbA1c</span>
+          <span class="dept-tech-pill">Lipid Profile</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/01.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#0066a4,#004a7a)">আ</div>
+            <div class="dept-doc-info"><h4>ডা. আবু বকর সিদ্দিক</h4><p>MBBS, BCS, MD (Internal Medicine)</p></div>
+          </a>
+          <a href="doctors/02.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#0066a4,#004a7a)">রি</div>
+            <div class="dept-doc-info"><h4>ডা. মোঃ রিয়াদ হোসেন বাপ্পি</h4><p>MBBS, BCS, CCD, FCPS (মেডিসিন)</p></div>
+          </a>
+          <a href="doctors/05.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#0066a4,#004a7a)">শ</div>
+            <div class="dept-doc-info"><h4>ডা. শশাঙ্ক নাগ (সনেট)</h4><p>MBBS, CCD, DMU, PGT</p></div>
+          </a>
+          <a href="doctors/06.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#0066a4,#004a7a)">রফ</div>
+            <div class="dept-doc-info"><h4>ডা. মোহাম্মদ রফিকুল ইসলাম</h4><p>MBBS, MPH, CCD, PHD (USA)</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="surg">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-surg"><i class="fa-solid fa-user-md"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>সার্জারি বিভাগ</h2>
+        <p class="tagline">জেনারেল ও ল্যাপারোস্কোপিক সার্জারি</p>
+      </div>
+    </div>
+    <p class="lead">সার্জারি বিভাগ জেনারেল ও ল্যাপারোস্কোপিক সার্জারি, কলোরেক্টাল সার্জারি ও ইউরোলজিক্যাল সার্জারি সেবা প্রদান করে। আধুনিক অপারেশন থিয়েটার ও অভিজ্ঞ সার্জন দিয়ে সজ্জিত।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>জেনারেল সার্জারি (সব ধরনের অপারেশন)</li>
+          <li>ল্যাপারোস্কোপিক (কী-হোল) সার্জারি</li>
+          <li>কলোরেক্টাল সার্জারি</li>
+          <li>পাইলস, ফিস্টুলা, ফিশার চিকিৎসা</li>
+          <li>অ্যাপেন্ডিক্স, হার্নিয়া, গলব্লাডার অপারেশন</li>
+          <li>পিত্তথলির পাথর অপারেশন</li>
+          <li>থাইরয়েড ও সফট টিস্যু টিউমার</li>
+          <li>ইউরোলজিক্যাল সার্জারি</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">আধুনিক ওটি</span>
+          <span class="dept-tech-pill">ল্যাপারোস্কোপিক সেট</span>
+          <span class="dept-tech-pill">Anaesthesia</span>
+          <span class="dept-tech-pill">C-arm</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/07.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#34495e,#1a2530)">উৎ</div>
+            <div class="dept-doc-info"><h4>ডা. উৎপল নাগ</h4><p>MBBS, BCS, PGT, FCPS, FRSH</p></div>
+          </a>
+          <a href="doctors/08.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#34495e,#1a2530)">সৌ</div>
+            <div class="dept-doc-info"><h4>ডা. আবু সালে আহমেদ সৌরভ</h4><p>MBBS, BCS, FCPS, MRCS</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="gynae">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-gynae"><i class="fa-solid fa-venus"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>গাইনি ও প্রসূতি বিভাগ</h2>
+        <p class="tagline">নারীর স্বাস্থ্য ও মাতৃত্বকালীন সেবা</p>
+      </div>
+    </div>
+    <p class="lead">গাইনি ও প্রসূতি বিভাগ নারীর প্রজনন স্বাস্থ্য, গর্ভাবস্থা, সন্তান প্রসব ও বন্ধ্যাত্ব চিকিৎসায় বিশেষজ্ঞ সেবা প্রদান করে। নিরাপদ মাতৃত্ব ও নবজাতকের যত্নে আমরা প্রতিশ্রুতিবদ্ধ।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>গাইনি ও প্রসূতি পরামর্শ</li>
+          <li>নরমাল ও সিজারিয়ান ডেলিভারি</li>
+          <li>বন্ধ্যাত্ব (ইনফার্টিলিটি) চিকিৎসা</li>
+          <li>মাসিক সমস্যা ও হরমোনের সমস্যা</li>
+          <li>পলিসিস্টিক ওভারি সিন্ড্রোম (PCOS)</li>
+          <li>জরায়ু টিউমার ও ওভারিয়ান সিস্ট</li>
+          <li>প্রি-পোস্ট মেনোপজ পরামর্শ</li>
+          <li>প্রসবপূর্ব ও প্রসবোত্তর যত্ন</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">USG</span>
+          <span class="dept-tech-pill">NST</span>
+          <span class="dept-tech-pill">Labour Room</span>
+          <span class="dept-tech-pill">Neo-natal Care</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/03.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#c2185b,#880e4f)">শ্রা</div>
+            <div class="dept-doc-info"><h4>ডা. শ্রাবন্তী এম ইসলাম</h4><p>MBBS, BCS, MCPS, FCPS, MRCOG (শেষ বর্ষ)</p></div>
+          </a>
+          <a href="doctors/12.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#c2185b,#880e4f)">পা</div>
+            <div class="dept-doc-info"><h4>ডা. পাপড়ী সরকার</h4><p>MBBS, PGT</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="ortho">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-ortho"><i class="fa-solid fa-bone"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>অর্থোপেডিক্স বিভাগ</h2>
+        <p class="tagline">হাড়, জয়েন্ট ও ট্রমা সার্জারি</p>
+      </div>
+    </div>
+    <p class="lead">অর্থোপেডিক্স বিভাগ হাড় ও জয়েন্টের সমস্যা, ফ্র্যাকচার, ট্রমা, বাতব্যথা, স্পোর্টস ইনজুরি ও মেরুদণ্ডের সমস্যার চিকিৎসা প্রদান করে। আধুনিক অপারেশন থিয়েটার ও অর্থো-সার্জারি সরঞ্জাম দিয়ে সজ্জিত।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>হাড় ও জয়েন্ট সার্জারি</li>
+          <li>ফ্র্যাকচার (হাড় ভাঙা) চিকিৎসা</li>
+          <li>ট্রমা ও অ্যাক্সিডেন্ট জনিত চিকিৎসা</li>
+          <li>বাতব্যথা ও আর্থ্রাইটিস</li>
+          <li>মেরুদণ্ডের সমস্যা</li>
+          <li>স্পোর্টস ইনজুরি</li>
+          <li>প্লাস্টার ও ব্যান্ডেজিং</li>
+          <li>জয়েন্ট রিপ্লেসমেন্ট</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">C-arm</span>
+          <span class="dept-tech-pill">Ortho Instruments</span>
+          <span class="dept-tech-pill">Plaster Room</span>
+          <span class="dept-tech-pill">X-ray</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/04.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#e67e22,#a04000)">মই</div>
+            <div class="dept-doc-info"><h4>ডা. মো. মঈন উদ্দিন</h4><p>MBBS, D-Ortho, FCPS (USA)</p></div>
+          </a>
+          <a href="doctors/09.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#e67e22,#a04000)">না</div>
+            <div class="dept-doc-info"><h4>ডা. নাহিদ বাদশা</h4><p>MBBS, BCS, MS (অর্থোপেডিক)</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="ent">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-ent"><i class="fa-solid fa-ear-listen"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>ইএনটি বিভাগ</h2>
+        <p class="tagline">নাক-কান-গলা ও হেড-নেক সার্জারি</p>
+      </div>
+    </div>
+    <p class="lead">ইএনটি বিভাগ নাক, কান, গলা, সাইনাস, টনসিল ও হেড-নেক সম্পর্কিত সব ধরনের রোগ নির্ণয় ও চিকিৎসা প্রদান করে। দীর্ঘদিনের অভিজ্ঞতাসম্পন্ন ইএনটি বিশেষজ্ঞ দ্বারা পরিচালিত।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>নাক, কান, গলার সব ধরনের চিকিৎসা</li>
+          <li>টনসিল ও অ্যাডেনয়েড অপারেশন</li>
+          <li>সাইনাস ইনফেকশন ও সাইনাস সার্জারি</li>
+          <li>কানের পর্দা ছিদ্র অপারেশন</li>
+          <li>হেড-নেক টিউমার সার্জারি</li>
+          <li>নাকের পলিপ ও ডেভিয়েশন</li>
+          <li>গলার ভয়েস ও ল্যারিংজিয়াল সমস্যা</li>
+          <li>কানে শোনা সমস্যা</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">Endoscope</span>
+          <span class="dept-tech-pill">Microscope</span>
+          <span class="dept-tech-pill">Audiometry</span>
+          <span class="dept-tech-pill">ENT Set</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/11.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#16a085,#0e6655)">সৈ</div>
+            <div class="dept-doc-info"><h4>ডা. সৈয়দ ইমতিয়াজ উদ্দিন</h4><p>MBBS, BCS, DLO</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="derma">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-derma"><i class="fa-solid fa-hand-dots"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>চর্ম ও যৌন বিভাগ</h2>
+        <p class="tagline">চর্মরোগ, এলার্জি ও যৌন স্বাস্থ্য</p>
+      </div>
+    </div>
+    <p class="lead">চর্ম ও যৌন বিভাগ চর্মরোগ, এক্সিমা, সোরিয়াসিস, ব্রণ, এলার্জি, যৌনবাহিত রোগ ও চুল-নখের সমস্যার চিকিৎসা প্রদান করে। আধুনিক চর্মরোগ চিকিৎসায় বিশেষজ্ঞ পরামর্শ।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>এক্সিমা ও ডার্মাটাইটিস চিকিৎসা</li>
+          <li>সোরিয়াসিস ও অন্যান্য দীর্ঘমেয়াদী চর্মরোগ</li>
+          <li>ব্রণ ও ত্বকের সমস্যা</li>
+          <li>দাউদ (Ringworm) ও ছত্রাক সংক্রমণ</li>
+          <li>এলার্জি ও আমবাত</li>
+          <li>যৌনবাহিত রোগ (STI)</li>
+          <li>চুল পড়া ও নখের সমস্যা</li>
+          <li>ভিটিলিগো ও স্কিন ডিসঅর্ডার</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">Wood's Lamp</span>
+          <span class="dept-tech-pill">Dermatoscope</span>
+          <span class="dept-tech-pill">Skin Biopsy</span>
+          <span class="dept-tech-pill">Patch Test</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/13.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#d35400,#a04000)">এস</div>
+            <div class="dept-doc-info"><h4>ডা. এস এম নূর ই আলম (বিদ্যুৎ)</h4><p>MBBS, BCS, PGT (চর্ম ও যৌন)</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="gp">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-gp"><i class="fa-solid fa-user-doctor"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>জেনারেল প্র্যাকটিশনার</h2>
+        <p class="tagline">সাধারণ রোগের সমন্বিত চিকিৎসা</p>
+      </div>
+    </div>
+    <p class="lead">জেনারেল প্র্যাকটিশনার বিভাগ সব ধরনের সাধারণ রোগ, শিশু রোগ, মাইনর সার্জারি ও সাধারণ স্বাস্থ্য পরামর্শ প্রদান করে। অভিজ্ঞ চিকিৎসক দীর্ঘ ২৫+ বছরের ক্লিনিক্যাল অভিজ্ঞতা নিয়ে সেবা দিচ্ছেন।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>সাধারণ রোগের চিকিৎসা ও পরামর্শ</li>
+          <li>মাইনর সার্জারি ও ক্ষত ড্রেসিং</li>
+          <li>স্ত্রী-রোগ ও প্রসূতি পরামর্শ</li>
+          <li>শিশু রোগ ও টিকা</li>
+          <li>চর্ম ও যৌন রোগ</li>
+          <li>বক্ষব্যাধি ও হাঁপানি</li>
+          <li>পরিপাকতন্ত্রের সমস্যা</li>
+          <li>সাধারণ স্বাস্থ্য চেকআপ</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">X-ray</span>
+          <span class="dept-tech-pill">ECG</span>
+          <span class="dept-tech-pill">Lab Tests</span>
+          <span class="dept-tech-pill">Vaccination</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/10.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#00a86b,#008755)">হ</div>
+            <div class="dept-doc-info"><h4>ডা. হরিচাঁদ শীল</h4><p>MBBS, BMC</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept-detail" id="sono">
+  <div class="container">
+    <div class="dept-detail-head">
+      <div class="dept-detail-icon bg-sono"><i class="fa-solid fa-wave-square"></i></div>
+      <div>
+        <span class="section-eyebrow">বিভাগ</span>
+        <h2>আল্ট্রাসনোগ্রাফি বিভাগ</h2>
+        <p class="tagline">সম্পূর্ণ USG ও ইকো</p>
+      </div>
+    </div>
+    <p class="lead">আল্ট্রাসনোগ্রাফি বিভাগ ৪ডি কালার ডপলার মেশিন দিয়ে সম্পূর্ণ পেটের USG, গর্ভাবস্থার USG, কিডনি-লিভার, থাইরয়েড, হার্ট ও বক্ষের ইকো সেবা প্রদান করে। ৩০+ বছরের অভিজ্ঞ রেডিওলজিস্ট দ্বারা পরিচালিত।</p>
+    <div class="dept-detail-grid">
+      <div>
+        <div class="dept-services">
+          <h3><i class="fa-solid fa-hand-holding-medical"></i> প্রধান সেবাসমূহ</h3>
+          <ul>
+          <li>সম্পূর্ণ আল্ট্রাসনোগ্রাফি (USG)</li>
+          <li>গর্ভাবস্থায় আল্ট্রাসনো (ANC)</li>
+          <li>কিডনি ও লিভারের USG</li>
+          <li>থাইরয়েড ও ঘাড়ের USG</li>
+          <li>হার্ট ও বক্ষের ইকো</li>
+          <li>পেলভিস ও লোয়ার অ্যাবডোমেন</li>
+          <li>ডপলার স্টাডি</li>
+          <li>রিয়েল-টাইম রিপোর্ট</li>
+          </ul>
+          <h3 style="margin-top:24px"><i class="fa-solid fa-microscope"></i> আধুনিক প্রযুক্তি ও সরঞ্জাম</h3>
+          <div class="dept-tech-pills">
+          <span class="dept-tech-pill">4D Color Doppler</span>
+          <span class="dept-tech-pill">Echocardiography</span>
+          <span class="dept-tech-pill">TVS Probe</span>
+          <span class="dept-tech-pill">Convex Probe</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dept-doctors-mini">
+          <h3><i class="fa-solid fa-user-doctor"></i> বিভাগের বিশেষজ্ঞ</h3>
+          <div class="dept-doc-list">
+          <a href="doctors/14.html" class="dept-doc-item">
+            <div class="dept-doc-avatar" style="background:linear-gradient(135deg,#2980b9,#1a5276)">শং</div>
+            <div class="dept-doc-info"><h4>ডা. শংকর কুমার দে</h4><p>MBBS, DNM</p></div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <div class="logo-mark">
+            <img src="niramoy-logo.png" alt="NIRAMAYA Hospital" />
+          </div>
+          <div>
+            <div class="bn">নিরাময় হাসপাতাল</div>
+            <div class="en">NIRAMAYA Hospital &amp; Diagnostic Center</div>
+          </div>
+        </div>
+        <p>১৯৯৯ সাল থেকে ফরিদপুরবাসীর সেবায় নিবেদিত — আধুনিক চিকিৎসা, অভিজ্ঞ বিশেষজ্ঞ ও নির্ভরযোগ্য ডায়াগনস্টিক সেবা।</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>কুইক লিংক</h4>
+        <ul>
+          <li><a href="index.html">হোম</a></li>
+          <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+          <li><a href="departments.html">বিভাগসমূহ</a></li>
+          <li><a href="doctors.html">ডাক্তারগণ</a></li>
+          <li><a href="services.html">সেবাসমূহ</a></li>
+          <li><a href="diagnostic.html">ডায়াগনস্টিক</a></li>
+          <li><a href="gallery.html">গ্যালারি</a></li>
+          <li><a href="contact.html">যোগাযোগ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>বিভাগসমূহ</h4>
+        <ul>
+          <li><a href="departments.html#med">মেডিসিন</a></li>
+          <li><a href="departments.html#surg">সার্জারি</a></li>
+          <li><a href="departments.html#gynae">গাইনী ও প্রসূতি</a></li>
+          <li><a href="departments.html#ortho">অর্থোপেডিক্স</a></li>
+          <li><a href="departments.html#ent">ইএনটি</a></li>
+          <li><a href="departments.html#derma">চর্ম ও যৌন</a></li>
+          <li><a href="departments.html#sono">আল্ট্রাসনোগ্রাফি</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <p><i class="fa-solid fa-location-dot" style="color:var(--accent);margin-right:6px;"></i> নিরাময় ভবন, পশ্চিম খাবাসপুর, ফরিদপুর</p>
+        <p><i class="fa-solid fa-phone" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801729171549" style="color:rgba(255,255,255,0.65);">+৮৮০১৭২৯-১৭১৫৪৯</a></p>
+        <p><i class="fa-solid fa-truck-medical" style="color:var(--accent);margin-right:6px;"></i> <a href="tel:+8801731827110" style="color:rgba(255,255,255,0.65);">+৮৮০১৭৩১-৮২৭১১০ (24/7)</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> নিরাময় হাসপাতাল এন্ড ডায়াগনস্টিক সেন্টার (প্রা:)। সকল অধিকার সংরক্ষিত।</p>
+    </div>
+  </div>
+</footer>
+<div class="fab-wrap">
+  <a class="fab fab-top" id="scrollTop" href="#top" aria-label="উপরে যান"><i class="fa-solid fa-chevron-up"></i></a>
+  <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
+</div>
+<script src="js/site.js"></script>
+</body>
+</html>
