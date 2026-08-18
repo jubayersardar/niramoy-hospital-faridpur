@@ -16,148 +16,6 @@
 <link rel="stylesheet" href="css/style.css?v=2.3" />
 
 <style>
-.hero-clean {
-  position: relative;
-  background: #001a33;
-  color: #fff;
-  overflow: hidden;
-  padding: 85px 0 115px;
-  text-align: center;
-}
-.hero-bg-slides {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hero-bg-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 8s ease-out;
-  transform: scale(1.05);
-}
-.hero-bg-slide.active {
-  opacity: 1;
-  transform: scale(1);
-}
-.hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, 
-    rgba(0, 18, 36, 0.48) 0%, 
-    rgba(0, 24, 46, 0.30) 50%, 
-    rgba(0, 18, 36, 0.58) 100%
-  );
-  z-index: 1;
-}
-.hero-clean-container {
-  position: relative;
-  z-index: 2;
-  max-width: 920px;
-  margin: 0 auto;
-}
-.hero-top-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  padding: 8px 22px;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-}
-.hero-clean-title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 18px;
-  letter-spacing: -0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 4px 25px rgba(0, 0, 0, 0.5);
-}
-.hero-clean-lead {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.7;
-  max-width: 780px;
-  margin: 0 auto 32px;
-  font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
-.hero-clean-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 35px;
-}
-.btn-phone-pill {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--text);
-  border-radius: 50px;
-  font-weight: 700;
-  padding: 13px 26px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-.btn-phone-pill:hover {
-  background: #ffffff;
-  color: var(--primary);
-  transform: translateY(-2px);
-}
-.hero-nav-arrow {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.20);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  z-index: 5;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.hero-nav-arrow:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-.hero-nav-arrow.prev { left: 25px; }
-.hero-nav-arrow.next { right: 25px; }
-.hero-clean-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.hero-clean-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.hero-clean-dot.active {
-  width: 32px;
-  border-radius: 10px;
-  background: var(--accent);
-}
 
 .hero-quick-bar-wrap {
   position: relative;
@@ -367,37 +225,106 @@
 </header>
 
 
-<!-- Hero -->
-<section class="hero-clean" id="home">
-  <!-- Background Image Slides (Indoor Medical Rooms & Equipment) -->
-  <div class="hero-bg-slides" id="heroBgSlides">
-    <div class="hero-bg-slide active" style="background-image: url('images/hero/slide-1.jpg')"></div>
-    <div class="hero-bg-slide" style="background-image: url('images/hero/slide-2.jpg')"></div>
-    <div class="hero-bg-slide" style="background-image: url('images/hero/slide-3.jpg')"></div>
-    <div class="hero-bg-slide" style="background-image: url('images/hero/slide-4.jpg')"></div>
-  </div>
-  <div class="hero-bg-overlay"></div>
-
-  <!-- Navigation Controls -->
-  <button class="hero-nav-arrow prev" id="heroPrevBtn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-  <button class="hero-nav-arrow next" id="heroNextBtn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-
-  <div class="container hero-clean-container">
-    <span class="hero-top-badge"><i class="fa-solid fa-hospital"></i> ১৯৯৯ সাল থেকে ফরিদপুরবাসীর সেবায়</span>
-    <h1 class="hero-clean-title">নিরাময় হাসপাতাল ও ডায়াগনস্টিক সেন্টার (প্রা:)</h1>
-    <p class="hero-clean-lead">ফরিদপুরে ১৪+ বিশেষজ্ঞ চিকিৎসক, ২৪/৭ ইমার্জেন্সি সেবা এবং আধুনিক ডায়াগনস্টিক — সব এক জায়গায়। অভিজ্ঞ বিশেষজ্ঞদের কাছ থেকে মানসম্মত চিকিৎসা নিন।</p>
+<!-- Hero Section with Synchronized Cinematic Slider -->
+<section class="hero-slider-section" id="home" aria-label="হাসপাতাল ব্যানার স্লাইডার">
+  <!-- Background Image Slides with Ken Burns Animation -->
+  <div class="hero-slides-wrapper" id="heroSlidesWrapper">
     
-    <div class="hero-clean-actions">
-      <a href="appointment" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> অনলাইন অ্যাপয়েন্টমেন্ট <i class="fa-solid fa-arrow-right"></i></a>
-      <a href="tel:+8801731827110" class="btn btn-phone-pill"><i class="fa-solid fa-phone"></i> ০১৭৩১-৮২৭১১০</a>
+    <!-- Slide 1 -->
+    <div class="hero-slide-item active" data-index="0">
+      <div class="hero-slide-bg" style="background-image: url('images/hero/slide-1.jpg');"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="container hero-slide-container">
+        <div class="hero-content-box">
+          <span class="hero-badge"><i class="fa-solid fa-hospital"></i> ১৯৯৯ সাল থেকে ফরিদপুরবাসীর সেবায়</span>
+          <h1 class="hero-title">নিরাময় হাসপাতাল ও ডায়াগনস্টিক সেন্টার</h1>
+          <p class="hero-desc">ফরিদপুরে অভিজ্ঞ বিশেষজ্ঞ চিকিৎসক, ২৪/৭ জরুরি সেবা এবং আধুনিক স্বাস্থ্যসেবার বিশ্বস্ত ঠিকানা।</p>
+          <div class="hero-btn-group">
+            <a href="appointment" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> অনলাইন সিরিয়াল নিন <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="tel:+8801731827110" class="btn btn-phone-glass"><i class="fa-solid fa-phone"></i> ০১৭৩১-৮২৭১১০</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Dots -->
-    <div class="hero-clean-dots" id="heroCleanDots">
-      <span class="hero-clean-dot active" data-slide="0"></span>
-      <span class="hero-clean-dot" data-slide="1"></span>
-      <span class="hero-clean-dot" data-slide="2"></span>
-      <span class="hero-clean-dot" data-slide="3"></span>
+    <!-- Slide 2 -->
+    <div class="hero-slide-item" data-index="1">
+      <div class="hero-slide-bg" style="background-image: url('images/hero/hero-doctors.jpg');"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="container hero-slide-container">
+        <div class="hero-content-box">
+          <span class="hero-badge"><i class="fa-solid fa-user-doctor"></i> ১৪+ অভিজ্ঞ বিশেষজ্ঞ চিকিৎসক</span>
+          <h1 class="hero-title">বিশেষজ্ঞ চিকিৎসকদের সরাসরি পরামর্শ ও সিরিয়াল</h1>
+          <p class="hero-desc">মেডিসিন, সার্জারি, গাইনি, অর্থোপেডিক্স, ইএনটি ও চর্ম বিশেষজ্ঞগণ প্রতিদিন নিয়মিত রোগী দেখছেন।</p>
+          <div class="hero-btn-group">
+            <a href="doctors" class="btn btn-accent"><i class="fa-solid fa-user-doctor"></i> সকল ডাক্তার দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="appointment" class="btn btn-phone-glass"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল বুক করুন</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide-item" data-index="2">
+      <div class="hero-slide-bg" style="background-image: url('images/hero/hero-diagnostic.jpg');"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="container hero-slide-container">
+        <div class="hero-content-box">
+          <span class="hero-badge"><i class="fa-solid fa-microscope"></i> সর্বাধুনিক বায়োমেডিকেল প্রযুক্তি</span>
+          <h1 class="hero-title">নির্ভুল ও দ্রুত রিপোর্ট সহ ডায়াগনস্টিক ল্যাব</h1>
+          <p class="hero-desc">৪ডি কালার ডপলার, ডিজিটাল এক্স-রে, সিবিসি ও সকল হরমোন পরীক্ষার নির্ভরযোগ্য ল্যাবরেটরি।</p>
+          <div class="hero-btn-group">
+            <a href="diagnostic" class="btn btn-accent"><i class="fa-solid fa-vial-virus"></i> ডায়াগনস্টিক টেস্ট দেখুন <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="tel:+8801729171549" class="btn btn-phone-glass"><i class="fa-solid fa-headset"></i> ডায়াগনস্টিক হেল্পডেস্ক</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="hero-slide-item" data-index="3">
+      <div class="hero-slide-bg" style="background-image: url('images/hero/hero-services.jpg');"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="container hero-slide-container">
+        <div class="hero-content-box">
+          <span class="hero-badge"><i class="fa-solid fa-truck-medical"></i> ২৪/৭ ইমার্জেন্সি ও অ্যাম্বুলেন্স</span>
+          <h1 class="hero-title">সার্বক্ষণিক জরুরি সেবা ও দ্রুত রোগী ভর্তি</h1>
+          <p class="hero-desc">অভিজ্ঞ মেডিকেল অফিসার, সার্বক্ষণিক নার্সিং ও আধুনিক অপারেশন থিয়েটারে মানসম্মত চিকিৎসা।</p>
+          <div class="hero-btn-group">
+            <a href="tel:+8801731827110" class="btn btn-accent"><i class="fa-solid fa-phone-volume"></i> জরুরি কল: ০১৭৩১-৮২৭১১০</a>
+            <a href="services" class="btn btn-phone-glass"><i class="fa-solid fa-procedures"></i> হাসপাতাল সেবাসমূহ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="hero-arrow-btn prev" id="heroPrevBtn" aria-label="পূর্ববর্তী স্লাইড">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <button class="hero-arrow-btn next" id="heroNextBtn" aria-label="পরবর্তী স্লাইড">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+  <!-- Modern Slide Navigation & Progress Pills -->
+  <div class="hero-progress-nav" id="heroProgressNav">
+    <div class="hero-nav-pill active" data-slide="0">
+      <div class="pill-track"><div class="pill-bar"></div></div>
+      <span class="pill-title">নিরাময় হাসপাতাল</span>
+    </div>
+    <div class="hero-nav-pill" data-slide="1">
+      <div class="pill-track"><div class="pill-bar"></div></div>
+      <span class="pill-title">বিশেষজ্ঞ ডাক্তার</span>
+    </div>
+    <div class="hero-nav-pill" data-slide="2">
+      <div class="pill-track"><div class="pill-bar"></div></div>
+      <span class="pill-title">ডায়াগনস্টিক ল্যাব</span>
+    </div>
+    <div class="hero-nav-pill" data-slide="3">
+      <div class="pill-track"><div class="pill-bar"></div></div>
+      <span class="pill-title">২৪/৭ ইমার্জেন্সি</span>
     </div>
   </div>
 </section>
