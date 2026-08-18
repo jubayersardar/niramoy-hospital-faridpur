@@ -34,7 +34,8 @@ def verify_all():
         img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
         for src in img_srcs:
             total_imgs_checked += 1
-            if not os.path.exists(src):
+            clean_src = src.split('?')[0]
+            if not os.path.exists(clean_src):
                 print(f"  [BROKEN IMAGE] In {page}: {src}")
                 broken_img_count += 1
                 
@@ -59,7 +60,8 @@ def verify_all():
         img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', c)
         for src in img_srcs:
             total_imgs_checked += 1
-            resolved = os.path.normpath(os.path.join('doctors', src))
+            clean_src = src.split('?')[0]
+            resolved = os.path.normpath(os.path.join('doctors', clean_src))
             if not os.path.exists(resolved):
                 print(f"  [BROKEN IMAGE] In {fn}: {src} (resolved: {resolved})")
                 broken_img_count += 1

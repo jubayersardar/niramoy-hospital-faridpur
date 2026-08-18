@@ -270,6 +270,11 @@
 .doctor-photo-link:hover::after{background:var(--primary);color:#fff;transform:scale(1.08) rotate(-8deg)}
 .doctor-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
 .doctor-actions .btn{margin-top:0;flex:1;min-width:120px;padding:10px 14px;font-size:0.82rem}
+.doctor-schedule{margin:8px 0 12px;padding:10px 12px;background:var(--bg-soft);border-radius:8px;border-left:3px solid var(--accent);font-size:0.78rem;line-height:1.45}
+.doctor-schedule .sch-row{display:flex;align-items:center;gap:6px;color:var(--text)}
+.doctor-schedule .sch-row i{color:var(--accent);font-size:0.85rem;width:14px;text-align:center;flex-shrink:0}
+.doctor-schedule .sch-row + .sch-row{margin-top:4px}
+.doctor-schedule .sch-label{color:var(--text-muted);font-weight:500}
 .view-all-wrap{text-align:center;margin-top:36px}
 
 .stats-section{position:relative;background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);color:#fff;padding:60px 0}
@@ -595,6 +600,10 @@
           <h3>ডা. আবু বকর সিদ্দিক</h3>
           <p class="deg">MBBS, BCS, MD (Internal Medicine)</p>
           <p class="designation">সহকারী অধ্যাপক, মেডিসিন বিভাগ</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> প্রতিদিন বিকাল ৪:০০ - রাত ৮:০০</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০১</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-abu-bakar-siddique" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-abu-bakar-siddique" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -614,6 +623,10 @@
           <h3>ডা. মোঃ রিয়াদ হোসেন বাপ্পি</h3>
           <p class="deg">MBBS, BCS, CCD, FCPS (মেডিসিন)</p>
           <p class="designation">সহকারী রেজিস্টার, মেডিসিন বিভাগ</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> শনি - বৃহস্পতিবার বিকাল ৩:৩০ - রাত ৮:০০</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০২</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-riad-hossain-bappi" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-riad-hossain-bappi" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -625,7 +638,7 @@
         <a href="doctors/dr-srabanti-m-islam" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
           <div class="doctor-photo bg-gynae">
             <span class="dept-tag">গাইনি ও প্রসূতি</span>
-            <img src="images/doctors/03-shrabanti.png" alt="ডা. শ্রাবন্তী এম ইসলাম" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
+            <img src="images/doctors/03-shrabanti.png?v=2" alt="ডা. শ্রাবন্তী এম ইসলাম" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
             <div class="avatar" style="display:none;">শ্রা</div>
           </div>
         </a>
@@ -633,6 +646,10 @@
           <h3>ডা. শ্রাবন্তী এম ইসলাম</h3>
           <p class="deg">MBBS, BCS, MCPS, FCPS, MRCOG (শেষ বর্ষ)</p>
           <p class="designation">কনসালটেন্ট, গাইনি ও প্রসূতি</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> প্রতিদিন সকাল ১০:০০ - বিকাল ৩:০০</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ৩০১</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-srabanti-m-islam" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-srabanti-m-islam" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -652,6 +669,10 @@
           <h3>ডা. মো. মঈন উদ্দিন</h3>
           <p class="deg">MBBS, D-Ortho, FCPS (USA)</p>
           <p class="designation">সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, অর্থোপেডিক বিভাগ</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> শনি - বৃহস্পতিবার বিকাল ৪:৩০ - রাত ৮:৩০</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ২০৩</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-moin-uddin" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-moin-uddin" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -663,7 +684,7 @@
         <a href="doctors/dr-shashanka-nag" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
           <div class="doctor-photo bg-med">
             <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/05-shashank-nag.jpg" alt="ডা. শশাঙ্ক নাগ (সনেট)" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
+            <img src="images/doctors/05-shashank-nag.jpg?v=2" alt="ডা. শশাঙ্ক নাগ (সনেট)" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
             <div class="avatar" style="display:none;">শ</div>
           </div>
         </a>
@@ -671,6 +692,10 @@
           <h3>ডা. শশাঙ্ক নাগ (সনেট)</h3>
           <p class="deg">MBBS, CCD, DMU, PGT</p>
           <p class="designation">মেডিসিন, ডায়াবেটিস ও রোগ বিশেষজ্ঞ</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> সকাল ৯ - দুপুর ২ ও বিকাল ৫ - রাত ৯</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০৩</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-shashanka-nag" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-shashanka-nag" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -690,6 +715,10 @@
           <h3>ডা. মোহাম্মদ রফিকুল ইসলাম</h3>
           <p class="deg">MBBS, MPH, CCD, PHD (USA)</p>
           <p class="designation">সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, কমিউনিটি মেডিসিন</p>
+          <div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> শনি - বৃহস্পতিবার বিকাল ৫:০০ - রাত ৮:৩০</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০৪</div>
+          </div>
           <div class="doctor-actions">
             <a href="doctors/dr-rafiqul-islam" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
             <a href="appointment?doc=dr-rafiqul-islam" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
@@ -747,10 +776,10 @@
       <p class="section-subtitle">পরিচ্ছন্ন ও আরামদায়ক পরিবেশে আধুনিক সেবা</p>
     </div>
     <div class="gallery-preview-grid">
-      <img src="niramoy-aidfast-cover.jpg" alt="হাসপাতাল ভবন" loading="lazy" />
-      <img src="niramaya-banner-official.jpg" alt="NIRAMAYA Official Banner" loading="lazy" />
-      <img src="niramoy-building-night.jpg" alt="সন্ধ্যার আলোয়" loading="lazy" />
-      <img src="niramoy-archhms-header.jpg" alt="ভেতরের অংশ" loading="lazy" />
+      <img src="niramoy-aidfast-cover.jpg?v=2" alt="নিরাময় হাসপাতাল ভবন — দিনের দৃশ্য" loading="lazy" />
+      <img src="niramoy-archhms-gallery2.jpg?v=2" alt="নিরাময় হাসপাতালের মূল ভবন" loading="lazy" />
+      <img src="niramoy-archhms-header.jpg?v=2" alt="নিরাময় হাসপাতাল — সন্ধ্যার আলোয়" loading="lazy" />
+      <img src="images/niramoy-lounge.jpg?v=2" alt="রোগীদের বিশ্রামাগার" loading="lazy" />
     </div>
     <div class="view-all-wrap">
       <a href="gallery" class="btn btn-outline"><i class="fa-solid fa-images"></i> সব ছবি দেখুন</a>
@@ -821,6 +850,6 @@
   <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=3"></script>
 </body>
 </html>

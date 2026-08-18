@@ -50,6 +50,14 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    // Safety fallback: after 1.5s, ensure all reveal elements become visible
+    // (handles cases where IO never fires — e.g., elements already in viewport on slow loads)
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        el.classList.add('visible');
+        obs.unobserve(el);
+      });
+    }, 1500);
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
@@ -128,6 +136,32 @@
       `;
       document.body.appendChild(bar);
     }
+  })();
+
+  // ===== 7b. Inject Doctor Schedule into Cards =====
+  (function injectDoctorSchedules() {
+    const cards = document.querySelectorAll('.doctor-card');
+    if (!cards.length || typeof DOCTORS_DATA === 'undefined') return;
+    cards.forEach(card => {
+      // Skip if already has schedule
+      if (card.querySelector('.doctor-schedule')) return;
+      const link = card.querySelector('a.doctor-photo-link');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      // Extract slug from href like "doctors/dr-abu-bakar-siddique"
+      const slugMatch = href.match(/doctors\/(dr-[a-z0-9-]+)/i) || href.match(/(dr-[a-z0-9-]+)/i);
+      if (!slugMatch) return;
+      const slug = slugMatch[1];
+      const doc = DOCTORS_DATA.find(d => d.slug === slug || d.id && href.includes(d.id));
+      if (!doc || !doc.days) return;
+      const actions = card.querySelector('.doctor-actions');
+      if (!actions) return;
+      const scheduleHTML = `<div class="doctor-schedule">
+            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> ${doc.days}</div>
+            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ${doc.room}</div>
+          </div>`;
+      actions.insertAdjacentHTML('beforebegin', scheduleHTML);
+    });
   })();
 
   // ===== 8. Filter Pills & Live Search on Doctors Page =====

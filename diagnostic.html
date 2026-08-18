@@ -23,8 +23,10 @@
 .diag-card h3{font-size:1.15rem;margin-bottom:8px}
 .diag-card .diag-lead{color:var(--text-muted);font-size:0.92rem;margin-bottom:14px}
 .diag-tests{list-style:none;padding:0;margin:0 0 14px 0;border-top:1px dashed var(--border);padding-top:14px}
-.diag-tests li{padding:5px 0 5px 22px;position:relative;color:var(--text-muted);font-size:0.86rem}
-.diag-tests li::before{content:"\\f46b";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--accent);position:absolute;left:0;top:5px;font-size:0.72rem}
+.diag-tests li{padding:5px 0 5px 22px;position:relative;color:var(--text-muted);font-size:0.86rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.diag-tests .test-name{flex:1}
+.diag-tests .test-price{color:var(--accent-dark);font-weight:700;font-size:0.85rem;background:var(--accent-light);padding:2px 10px;border-radius:6px;white-space:nowrap;flex-shrink:0}
+.diag-tests li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--accent);position:absolute;left:0;top:7px;font-size:0.78rem}
 .diag-tech{font-size:0.78rem;color:var(--text-muted);background:var(--bg-soft);padding:8px 12px;border-radius:8px;margin-top:10px}
 </style>
 
@@ -114,14 +116,14 @@
         <h3>ক্লিনিক্যাল প্যাথলজি</h3>
         <p class="diag-lead">রক্ত, প্রস্রাব, কফ, স্টুল ও সিবিসি সহ সকল প্যাথলজিক্যাল পরীক্ষা।</p>
         <ul class="diag-tests">
-          <li>CBC ও ESR</li>
-          <li>Urine R/E</li>
-          <li>Blood Grouping</li>
-          <li>Sugar Profile</li>
-          <li>Liver Function Test (LFT)</li>
-          <li>Kidney Function Test (KFT)</li>
-          <li>Lipid Profile</li>
-          <li>Electrolytes</li>
+          <li><span class="test-name">CBC ও ESR</span><span class="test-price">৳৩০০</span></li>
+          <li><span class="test-name">Urine R/E</span><span class="test-price">৳২০০</span></li>
+          <li><span class="test-name">Blood Grouping</span><span class="test-price">৳২০০</span></li>
+          <li><span class="test-name">Sugar Profile</span><span class="test-price">৳৫০০</span></li>
+          <li><span class="test-name">Liver Function Test (LFT)</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">Kidney Function Test (KFT)</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">Lipid Profile</span><span class="test-price">৳৯০০</span></li>
+          <li><span class="test-name">Electrolytes</span><span class="test-price">৳৮০০</span></li>
         </ul>
       </div>
 
@@ -130,14 +132,14 @@
         <h3>আল্ট্রাসনোগ্রাফি (USG)</h3>
         <p class="diag-lead">৪ডি কালার ডপলার মেশিনে সম্পূর্ণ আল্ট্রাসাউন্ড সেবা।</p>
         <ul class="diag-tests">
-          <li>Whole Abdomen USG</li>
-          <li>Pelvis USG</li>
-          <li>TVS (Transvaginal)</li>
-          <li>Pregnancy Profile</li>
-          <li>Thyroid/ Neck</li>
-          <li>Echocardiography</li>
-          <li>Doppler Study</li>
-          <li>Renal USG</li>
+          <li><span class="test-name">Whole Abdomen USG</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Pelvis USG</span><span class="test-price">৳১,২০০</span></li>
+          <li><span class="test-name">TVS (Transvaginal)</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Pregnancy Profile</span><span class="test-price">৳২,৫০০</span></li>
+          <li><span class="test-name">Thyroid / Neck</span><span class="test-price">৳১,২০০</span></li>
+          <li><span class="test-name">Echocardiography</span><span class="test-price">৳৩,০০০</span></li>
+          <li><span class="test-name">Doppler Study</span><span class="test-price">৳৩,০০০</span></li>
+          <li><span class="test-name">Renal USG</span><span class="test-price">৳১,২০০</span></li>
         </ul>
       </div>
 
@@ -146,12 +148,12 @@
         <h3>ইসিজি (ECG)</h3>
         <p class="diag-lead">হৃদরোগ নির্ণয়ের জন্য ডিজিটাল ইসিজি।</p>
         <ul class="diag-tests">
-          <li>Resting ECG</li>
-          <li>Stress ECG (TMT)</li>
-          <li>Holter Monitoring</li>
-          <li>Rhythm Analysis</li>
-          <li>Ischemia Detection</li>
-          <li>Pre-op ECG</li>
+          <li><span class="test-name">Resting ECG</span><span class="test-price">৳৪০০</span></li>
+          <li><span class="test-name">Stress ECG (TMT)</span><span class="test-price">৳২,০০০</span></li>
+          <li><span class="test-name">Holter Monitoring</span><span class="test-price">৳৫,০০০</span></li>
+          <li><span class="test-name">Rhythm Analysis</span><span class="test-price">৳৫০০</span></li>
+          <li><span class="test-name">Ischemia Detection</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">Pre-op ECG</span><span class="test-price">৳৪০০</span></li>
         </ul>
       </div>
 
@@ -160,12 +162,12 @@
         <h3>ডিজিটাল এক্স-রে</h3>
         <p class="diag-lead">হাড়, বক্ষ ও অন্যান্য এক্স-রে — দ্রুত রিপোর্ট সহ।</p>
         <ul class="diag-tests">
-          <li>Chest X-ray</li>
-          <li>Abdomen X-ray</li>
-          <li>Bone X-ray</li>
-          <li>Spine X-ray</li>
-          <li>Skull X-ray</li>
-          <li>Joint X-ray</li>
+          <li><span class="test-name">Chest X-ray</span><span class="test-price">৳৫০০</span></li>
+          <li><span class="test-name">Abdomen X-ray</span><span class="test-price">৳৬০০</span></li>
+          <li><span class="test-name">Bone X-ray</span><span class="test-price">৳৫০০</span></li>
+          <li><span class="test-name">Spine X-ray</span><span class="test-price">৳৭০০</span></li>
+          <li><span class="test-name">Skull X-ray</span><span class="test-price">৳৬০০</span></li>
+          <li><span class="test-name">Joint X-ray</span><span class="test-price">৳৫০০</span></li>
         </ul>
       </div>
 
@@ -174,14 +176,14 @@
         <h3>বায়োকেমিস্ট্রি</h3>
         <p class="diag-lead">Automated Analyzer দিয়ে সব বায়োকেমিক্যাল পরীক্ষা।</p>
         <ul class="diag-tests">
-          <li>Glucose (F/R/2HR)</li>
-          <li>HbA1c</li>
-          <li>Lipid Profile</li>
-          <li>LFT</li>
-          <li>KFT</li>
-          <li>Electrolytes</li>
-          <li>Uric Acid</li>
-          <li>Calcium/Magnesium</li>
+          <li><span class="test-name">Glucose (F / R / 2HR)</span><span class="test-price">৳১৫০</span></li>
+          <li><span class="test-name">HbA1c</span><span class="test-price">৳৯০০</span></li>
+          <li><span class="test-name">Lipid Profile</span><span class="test-price">৳৯০০</span></li>
+          <li><span class="test-name">LFT</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">KFT</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">Electrolytes</span><span class="test-price">৳৮০০</span></li>
+          <li><span class="test-name">Uric Acid</span><span class="test-price">৳৪০০</span></li>
+          <li><span class="test-name">Calcium / Magnesium</span><span class="test-price">৳৬০০</span></li>
         </ul>
       </div>
 
@@ -190,14 +192,14 @@
         <h3>হরমোন ও সেরোলজি</h3>
         <p class="diag-lead">থাইরয়েড, ডায়াবেটিস ও অন্যান্য হরমোন টেস্ট।</p>
         <ul class="diag-tests">
-          <li>T3, T4, TSH</li>
-          <li>Anti-TPO</li>
-          <li>Insulin</li>
-          <li>Cortisol</li>
-          <li>Vitamin D</li>
-          <li>Vitamin B12</li>
-          <li>Ferritin</li>
-          <li>PSA</li>
+          <li><span class="test-name">T3, T4, TSH</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Anti-TPO</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Insulin</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Cortisol</span><span class="test-price">৳১,৮০০</span></li>
+          <li><span class="test-name">Vitamin D</span><span class="test-price">৳২,২০০</span></li>
+          <li><span class="test-name">Vitamin B12</span><span class="test-price">৳১,৫০০</span></li>
+          <li><span class="test-name">Ferritin</span><span class="test-price">৳১,২০০</span></li>
+          <li><span class="test-name">PSA</span><span class="test-price">৳১,৫০০</span></li>
         </ul>
       </div>
 
@@ -268,6 +270,6 @@
   <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
 </div>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=3"></script>
 </body>
 </html>
