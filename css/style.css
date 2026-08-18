@@ -85,9 +85,9 @@ h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.3;color:var(--text)}
 .menu-toggle{display:none;width:44px;height:44px;background:var(--primary-light);color:var(--primary);border-radius:8px;font-size:1.2rem;align-items:center;justify-content:center}
 
 /* ===== Modern Cinematic Hero Slider ===== */
-.hero-slider-section{position:relative;background:#001426;color:#fff;overflow:hidden;min-height:560px;display:flex;align-items:center}
-.hero-slides-wrapper{position:relative;width:100%;min-height:560px;display:flex}
-.hero-slide-item{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1),visibility 0.9s ease;display:flex;align-items:center;padding:90px 0 120px;z-index:1}
+.hero-slider-section{position:relative;background:#001426;color:#fff;overflow:hidden;min-height:580px;display:flex;align-items:center}
+.hero-slides-wrapper{position:relative;width:100%;min-height:580px;display:flex}
+.hero-slide-item{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1),visibility 0.9s ease;display:flex;align-items:center;padding:90px 0 155px;z-index:1}
 .hero-slide-item.active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
 .hero-slide-bg{position:absolute;inset:0;background-size:cover;background-position:center center;background-repeat:no-repeat;transform:scale(1.08);transition:transform 7s cubic-bezier(0.25,1,0.5,1);z-index:0}
 .hero-slide-item.active .hero-slide-bg{transform:scale(1.0)}
@@ -121,7 +121,7 @@ h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.3;color:var(--text)}
 .hero-arrow-btn.next{right:25px}
 
 /* Progress Nav Pills */
-.hero-progress-nav{position:absolute;bottom:35px;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 20px;flex-wrap:wrap}
+.hero-progress-nav{position:absolute;bottom:82px;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:center;gap:12px;padding:0 20px;flex-wrap:wrap}
 .hero-nav-pill{background:rgba(0,18,36,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:30px;padding:6px 14px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:all 0.3s ease;min-width:110px}
 .hero-nav-pill:hover{background:rgba(0,18,36,0.75);border-color:rgba(255,255,255,0.45)}
 .hero-nav-pill.active{background:rgba(0,25,48,0.85);border-color:var(--accent);box-shadow:0 4px 15px rgba(0,168,107,0.25)}
@@ -133,9 +133,10 @@ h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.3;color:var(--text)}
 .hero-nav-pill.active.paused .pill-bar{animation-play-state:paused}
 
 @media(max-width:768px){
-  .hero-slider-section{min-height:500px}
-  .hero-slide-item{padding:75px 15px 105px}
+  .hero-slider-section{min-height:520px}
+  .hero-slide-item{padding:75px 15px 140px}
   .hero-arrow-btn{display:none}
+  .hero-progress-nav{bottom:75px}
   .hero-nav-pill .pill-title{display:none}
   .hero-nav-pill{min-width:auto;padding:6px 8px;width:38px}
   .hero-nav-pill.active{width:56px}
