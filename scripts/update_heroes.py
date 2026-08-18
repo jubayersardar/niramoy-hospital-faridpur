@@ -21,7 +21,7 @@ for page, img_name in hero_map.items():
         content = f.read()
         
     # 1. Update css link for cache busting
-    content = re.sub(r'href="css/style\.css(\?[^"]*)?"', 'href="css/style.css?v=2.2"', content)
+    content = re.sub(r'href="css/style\.css(\?[^"]*)?"', 'href="css/style.css?v=2.3"', content)
     
     # 2. Update page-hero section tag with class and inline style
     hero_cls = f"page-hero--{page.replace('.html', '')}"
