@@ -116,7 +116,7 @@
             <i class="fa-brands fa-whatsapp"></i>
             <span>WhatsApp</span>
           </a>
-          <a href="${rootPrefix}appointment.html" class="mobile-bottom-item appoint">
+          <a href="${rootPrefix}appointment" class="mobile-bottom-item appoint">
             <i class="fa-regular fa-calendar-check"></i>
             <span>সিরিয়াল নিন</span>
           </a>
