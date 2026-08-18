@@ -40,10 +40,16 @@ def verify_all():
                 
         print(f"[OK] {page:18s} | CSS: {has_css} | JS: {has_js} | Header: {has_header} | Footer: {has_footer}")
 
-    print("\nChecking Doctor Profile Pages (14):")
+    print("\nChecking Doctor Profile Pages (14 Named Slugs):")
+    slugs = [
+        "dr-abu-bakar-siddique", "dr-riad-hossain-bappi", "dr-srabanti-m-islam",
+        "dr-moin-uddin", "dr-shashanka-nag", "dr-rafiqul-islam", "dr-utpal-nag",
+        "dr-abu-saleh-sourav", "dr-nahid-badsha", "dr-harichand-sheel",
+        "dr-syed-imtiaz-uddin", "dr-papri-sarkar", "dr-sm-nur-e-alam", "dr-shankar-kumar-dey"
+    ]
     doc_ok = 0
-    for i in range(1, 15):
-        fn = os.path.join('doctors', f'{i:02d}.html')
+    for slug in slugs:
+        fn = os.path.join('doctors', f'{slug}.html')
         if not os.path.exists(fn):
             print(f"  [MISSING] {fn}")
             continue
@@ -60,7 +66,7 @@ def verify_all():
                 
         doc_ok += 1
 
-    print(f"[OK] Doctor Profiles: {doc_ok}/14 verified")
+    print(f"[OK] Named Doctor Profiles: {doc_ok}/14 verified")
     print(f"[OK] Total Images Checked: {total_imgs_checked} (Broken: {broken_img_count})")
     
     if not missing_pages and broken_img_count == 0:

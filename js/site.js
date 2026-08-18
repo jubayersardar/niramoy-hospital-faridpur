@@ -8,20 +8,20 @@
 
   // ===== 1. Master Doctors Data =====
   const DOCTORS_DATA = [
-    { id: "01", name: "ডা. আবু বকর সিদ্দিক", dept: "med", deptName: "মেডিসিন", deg: "MBBS, BCS, MD (Internal Medicine)", desg: "সহকারী অধ্যাপক, মেডিসিন বিভাগ", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০১" },
-    { id: "02", name: "ডা. মোঃ রিয়াদ হোসেন বাপ্পি", dept: "med", deptName: "মেডিসিন", deg: "MBBS, BCS, CCD, FCPS (মেডিসিন)", desg: "সহকারী রেজিস্টার, মেডিসিন বিভাগ", days: "শনি - বৃহস্পতি বিকাল ৩:০০ - রাত ৮:০০", room: "কক্ষ ১০২" },
-    { id: "03", name: "ডা. শ্রাবন্তী এম ইসলাম", dept: "gynae", deptName: "গাইনি ও প্রসূতি", deg: "MBBS, BCS, MCPS, FCPS, MRCOG (শেষ বর্ষ)", desg: "কনসালটেন্ট, গাইনি ও প্রসূতি", days: "প্রতিদিন সকাল ১০:০০ - বিকাল ৩:০০", room: "কক্ষ ৩০১" },
-    { id: "04", name: "ডা. মো. মঈন উদ্দিন", dept: "ortho", deptName: "অর্থোপেডিক্স", deg: "MBBS, D-Ortho, FCPS (USA)", desg: "সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, অর্থোপেডিক বিভাগ", days: "শনি - বৃহস্পতি বিকাল ৪:৩০ - রাত ৮:৩০", room: "কক্ষ ২০৩" },
-    { id: "05", name: "ডা. শশাঙ্ক নাগ (সনেট)", dept: "med", deptName: "মেডিসিন", deg: "MBBS, CCD, DMU, PGT", desg: "মেডিসিন, ডায়াবেটিস ও রোগ বিশেষজ্ঞ", days: "প্রতিদিন সকাল ৯:০০ - দুপুর ২:০০ ও বিকাল ৫:০০ - রাত ৯:০০", room: "কক্ষ ১০৩" },
-    { id: "06", name: "ডা. মোহাম্মদ রফিকুল ইসলাম", dept: "med", deptName: "মেডিসিন", deg: "MBBS, MPH, CCD, PHD (USA)", desg: "সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, কমিউনিটি মেডিসিন", days: "শনি - বৃহস্পতি বিকাল ৫:০০ - রাত ৮:৩০", room: "কক্ষ ১০৪" },
-    { id: "07", name: "ডা. উৎপল নাগ", dept: "surg", deptName: "সার্জারি", deg: "MBBS, BCS, PGT, FCPS, FRSH", desg: "আর এস সার্জন, জেনারেল ও ল্যাপারোস্কোপিক সার্জারি", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ২০৪" },
-    { id: "08", name: "ডা. আবু সালে আহমেদ সৌরভ", dept: "surg", deptName: "সার্জারি", deg: "MBBS, BCS, FCPS, MRCS", desg: "জেনারেল ও ল্যাপারোস্কোপিক সার্জন", days: "শনি - বৃহস্পতি বিকাল ৩:৩০ - রাত ৭:৩০", room: "কক্ষ ২০৫" },
-    { id: "09", name: "ডা. নাহিদ বাদশা", dept: "ortho", deptName: "অর্থোপেডিক্স", deg: "MBBS, BCS, MS (অর্থোপেডিক)", desg: "আবাসিক সার্জন (D-অর্থোপেডিক)", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৯:০০", room: "কক্ষ ২০২" },
-    { id: "10", name: "ডা. হরিচাঁদ শীল", dept: "gp", deptName: "জেনারেল প্র্যাকটিশনার", deg: "MBBS, BMC", desg: "অধ্যক্ষ, জেনারেল প্র্যাকটিশনার", days: "প্রতিদিন সকাল ৯:০০ - দুপুর ১:০০ ও বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০০" },
-    { id: "11", name: "ডা. সৈয়দ ইমতিয়াজ উদ্দিন", dept: "ent", deptName: "ইএনটি", deg: "MBBS, BCS, DLO", desg: "গলা রোগ বিশেষজ্ঞ ও হেড-নেক সার্জন", days: "শনি - বৃহস্পতি বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০৮" },
-    { id: "12", name: "ডা. পাপড়ী সরকার", dept: "gynae", deptName: "গাইনি ও প্রসূতি", deg: "MBBS, PGT", desg: "গাইনি ও স্ত্রীরোগ বিশেষজ্ঞ", days: "প্রতিদিন সকাল ১০:০০ - বিকাল ৪:০০", room: "কক্ষ ৩০২" },
-    { id: "13", name: "ডা. এস এম নূর ই আলম (বিদ্যুৎ)", dept: "derma", deptName: "চর্ম ও যৌন", deg: "MBBS, BCS, PGT (চর্ম ও যৌন)", desg: "চর্ম, যৌন, সেক্স ও এলার্জি রোগে অভিজ্ঞ", days: "প্রতিদিন বিকাল ৩:০০ - রাত ৮:৩০", room: "কক্ষ ১০৯" },
-    { id: "14", name: "ডা. শংকর কুমার দে", dept: "sono", deptName: "আল্ট্রাসনোগ্রাফি", deg: "MBBS, DNM", desg: "আল্ট্রাসনোগ্রাফি বিশেষজ্ঞ", days: "প্রতিদিন সকাল ৮:৩০ - রাত ৯:০০", room: "কক্ষ ১১০" }
+    { id: "01", slug: "dr-abu-bakar-siddique", name: "ডা. আবু বকর সিদ্দিক", dept: "med", deptName: "মেডিসিন", deg: "MBBS, BCS, MD (Internal Medicine)", desg: "সহকারী অধ্যাপক, মেডিসিন বিভাগ", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০১" },
+    { id: "02", slug: "dr-riad-hossain-bappi", name: "ডা. মোঃ রিয়াদ হোসেন বাপ্পি", dept: "med", deptName: "মেডিসিন", deg: "MBBS, BCS, CCD, FCPS (মেডিসিন)", desg: "সহকারী রেজিস্টার, মেডিসিন বিভাগ", days: "শনি - বৃহস্পতি বিকাল ৩:০০ - রাত ৮:০০", room: "কক্ষ ১০২" },
+    { id: "03", slug: "dr-srabanti-m-islam", name: "ডা. শ্রাবন্তী এম ইসলাম", dept: "gynae", deptName: "গাইনি ও প্রসূতি", deg: "MBBS, BCS, MCPS, FCPS, MRCOG (শেষ বর্ষ)", desg: "কনসালটেন্ট, গাইনি ও প্রসূতি", days: "প্রতিদিন সকাল ১০:০০ - বিকাল ৩:০০", room: "কক্ষ ৩০১" },
+    { id: "04", slug: "dr-moin-uddin", name: "ডা. মো. মঈন উদ্দিন", dept: "ortho", deptName: "অর্থোপেডিক্স", deg: "MBBS, D-Ortho, FCPS (USA)", desg: "সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, অর্থোপেডিক বিভাগ", days: "শনি - বৃহস্পতি বিকাল ৪:৩০ - রাত ৮:৩০", room: "কক্ষ ২০৩" },
+    { id: "05", slug: "dr-shashanka-nag", name: "ডা. শশাঙ্ক নাগ (সনেট)", dept: "med", deptName: "মেডিসিন", deg: "MBBS, CCD, DMU, PGT", desg: "মেডিসিন, ডায়াবেটিস ও রোগ বিশেষজ্ঞ", days: "প্রতিদিন সকাল ৯:০০ - দুপুর ২:০০ ও বিকাল ৫:০০ - রাত ৯:০০", room: "কক্ষ ১০৩" },
+    { id: "06", slug: "dr-rafiqul-islam", name: "ডা. মোহাম্মদ রফিকুল ইসলাম", dept: "med", deptName: "মেডিসিন", deg: "MBBS, MPH, CCD, PHD (USA)", desg: "সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, কমিউনিটি মেডিসিন", days: "শনি - বৃহস্পতি বিকাল ৫:০০ - রাত ৮:৩০", room: "কক্ষ ১০৪" },
+    { id: "07", slug: "dr-utpal-nag", name: "ডা. উৎপল নাগ", dept: "surg", deptName: "সার্জারি", deg: "MBBS, BCS, PGT, FCPS, FRSH", desg: "আর এস সার্জন, জেনারেল ও ল্যাপারোস্কোপিক সার্জারি", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ২০৪" },
+    { id: "08", slug: "dr-abu-saleh-sourav", name: "ডা. আবু সালে আহমেদ সৌরভ", dept: "surg", deptName: "সার্জারি", deg: "MBBS, BCS, FCPS, MRCS", desg: "জেনারেল ও ল্যাপারোস্কোপিক সার্জন", days: "শনি - বৃহস্পতি বিকাল ৩:৩০ - রাত ৭:৩০", room: "কক্ষ ২০৫" },
+    { id: "09", slug: "dr-nahid-badsha", name: "ডা. নাহিদ বাদশা", dept: "ortho", deptName: "অর্থোপেডিক্স", deg: "MBBS, BCS, MS (অর্থোপেডিক)", desg: "আবাসিক সার্জন (D-অর্থোপেডিক)", days: "প্রতিদিন বিকাল ৪:০০ - রাত ৯:০০", room: "কক্ষ ২০২" },
+    { id: "10", slug: "dr-harichand-sheel", name: "ডা. হরিচাঁদ শীল", dept: "gp", deptName: "জেনারেল প্র্যাকটিশনার", deg: "MBBS, BMC", desg: "অধ্যক্ষ, জেনারেল প্র্যাকটিশনার", days: "প্রতিদিন সকাল ৯:০০ - দুপুর ১:০০ ও বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০০" },
+    { id: "11", slug: "dr-syed-imtiaz-uddin", name: "ডা. সৈয়দ ইমতিয়াজ উদ্দিন", dept: "ent", deptName: "ইএনটি", deg: "MBBS, BCS, DLO", desg: "গলা রোগ বিশেষজ্ঞ ও হেড-নেক সার্জন", days: "শনি - বৃহস্পতি বিকাল ৪:০০ - রাত ৮:০০", room: "কক্ষ ১০৮" },
+    { id: "12", slug: "dr-papri-sarkar", name: "ডা. পাপড়ী সরকার", dept: "gynae", deptName: "গাইনি ও প্রসূতি", deg: "MBBS, PGT", desg: "গাইনি ও স্ত্রীরোগ বিশেষজ্ঞ", days: "প্রতিদিন সকাল ১০:০০ - বিকাল ৪:০০", room: "কক্ষ ৩০২" },
+    { id: "13", slug: "dr-sm-nur-e-alam", name: "ডা. এস এম নূর ই আলম (বিদ্যুৎ)", dept: "derma", deptName: "চর্ম ও যৌন", deg: "MBBS, BCS, PGT (চর্ম ও যৌন)", desg: "চর্ম, যৌন, সেক্স ও এলার্জি রোগে অভিজ্ঞ", days: "প্রতিদিন বিকাল ৩:০০ - রাত ৮:৩০", room: "কক্ষ ১০৯" },
+    { id: "14", slug: "dr-shankar-kumar-dey", name: "ডা. শংকর কুমার দে", dept: "sono", deptName: "আল্ট্রাসনোগ্রাফি", deg: "MBBS, DNM", desg: "আল্ট্রাসনোগ্রাফি বিশেষজ্ঞ", days: "প্রতিদিন সকাল ৮:৩০ - রাত ৯:০০", room: "কক্ষ ১১০" }
   ];
 
   const DEPT_MAP = {
@@ -242,8 +242,12 @@
     const paramDept = urlParams.get('dept');
 
     if (paramDoc) {
-      const cleanDocId = paramDoc.padStart(2, '0');
-      const foundDoc = DOCTORS_DATA.find(d => d.id === cleanDocId);
+      const foundDoc = DOCTORS_DATA.find(d => 
+        d.slug === paramDoc || 
+        d.id === paramDoc || 
+        d.id === paramDoc.padStart(2, '0') || 
+        d.name.includes(paramDoc)
+      );
       if (foundDoc) {
         let deptKey = foundDoc.dept;
         for (let i = 0; i < deptSelect.options.length; i++) {
@@ -253,7 +257,7 @@
             break;
           }
         }
-        populateDoctorsDropdown(deptKey, cleanDocId);
+        populateDoctorsDropdown(deptKey, foundDoc.id);
         setTimeout(() => {
           apptForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 300);
