@@ -60,10 +60,9 @@ def verify_all():
         img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', c)
         for src in img_srcs:
             total_imgs_checked += 1
-            clean_src = src.split('?')[0]
-            resolved = os.path.normpath(os.path.join('doctors', clean_src))
-            if not os.path.exists(resolved):
-                print(f"  [BROKEN IMAGE] In {fn}: {src} (resolved: {resolved})")
+            # Resolves from root due to <base href="/">
+            if not os.path.exists(clean_src) and not os.path.exists(os.path.join('doctors', clean_src)):
+                print(f"  [BROKEN IMAGE] In {fn}: {src}")
                 broken_img_count += 1
                 
         doc_ok += 1

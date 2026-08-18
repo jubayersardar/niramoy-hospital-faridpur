@@ -30,31 +30,49 @@ class CleanUrlHandler(http.server.BaseHTTPRequestHandler):
     def handle_request(self, send_body=True):
         parsed = urllib.parse.urlparse(self.path)
         raw_path = urllib.parse.unquote(parsed.path)
+        query = parsed.query
         
+        # 1. Automatic 301 Redirect for trailing slash on clean URLs (e.g. /doctors/ -> /doctors, /about/ -> /about)
+        if raw_path != '/' and raw_path.endswith('/'):
+            redirect_target = raw_path.rstrip('/')
+            if query:
+                redirect_target += f"?{query}"
+            self.send_response(301)
+            self.send_header('Location', redirect_target)
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            return
+
         # Normalize path
         clean_path = raw_path.strip('/')
         
-        # 1. Root -> index.html
+        # 2. Root -> index.html
         if not clean_path:
-            file_path = os.path.join(DIRECTORY, 'index.html')
+            target_file = os.path.join(DIRECTORY, 'index.html')
         else:
             file_path = os.path.join(DIRECTORY, *clean_path.split('/'))
-
-        # 2. Check if direct file exists
-        if os.path.isfile(file_path):
-            target_file = file_path
-        # 3. Check if clean URL (.html counterpart) exists (e.g., /about -> about.html, /doctors -> doctors.html)
-        elif os.path.isfile(file_path + '.html'):
-            target_file = file_path + '.html'
-        # 4. Check if directory has index.html
-        elif os.path.isdir(file_path) and os.path.isfile(os.path.join(file_path, 'index.html')):
-            target_file = os.path.join(file_path, 'index.html')
-        # 5. Special case: /doctors/ when doctors.html exists in root
-        elif clean_path == 'doctors' and os.path.isfile(os.path.join(DIRECTORY, 'doctors.html')):
-            target_file = os.path.join(DIRECTORY, 'doctors.html')
-        else:
-            self.send_error(404, f"File not found: {raw_path}")
-            return
+            
+            # 3. Direct static file match
+            if os.path.isfile(file_path):
+                target_file = file_path
+            # 4. Clean URL check (.html counterpart e.g., /about -> about.html, /doctors -> doctors.html, /doctors/dr-... -> doctors/dr-....html)
+            elif os.path.isfile(file_path + '.html'):
+                target_file = file_path + '.html'
+            # 5. Asset fallback if requested with subpage prefix (e.g. /doctors/css/style.css -> /css/style.css)
+            elif 'css/' in clean_path or 'js/' in clean_path or 'images/' in clean_path:
+                for prefix in ['css/', 'js/', 'images/']:
+                    if prefix in clean_path:
+                        rel_sub = clean_path[clean_path.index(prefix):]
+                        test_fallback = os.path.join(DIRECTORY, *rel_sub.split('/'))
+                        if os.path.isfile(test_fallback):
+                            target_file = test_fallback
+                            break
+                else:
+                    self.send_error(404, f"File not found: {raw_path}")
+                    return
+            else:
+                self.send_error(404, f"File not found: {raw_path}")
+                return
 
         try:
             with open(target_file, 'rb') as f:
@@ -78,7 +96,6 @@ class CleanUrlHandler(http.server.BaseHTTPRequestHandler):
             self.send_error(500, f"Internal server error: {e}")
 
     def log_message(self, format, *args):
-        # Concise logging
         sys.stderr.write(f"[{self.log_date_time_string()}] {self.address_string()} - {format % args}\n")
 
 class ReusableThreadingServer(socketserver.ThreadingTCPServer):
