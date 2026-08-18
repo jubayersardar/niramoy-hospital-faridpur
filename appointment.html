@@ -42,7 +42,7 @@
 .quick-options{margin-top:30px;text-align:center}
 .quick-options p{color:var(--text-muted);margin-bottom:12px;font-size:0.9rem}
 .quick-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-@media (max-width:768px){.appointment-wrap{grid-template-columns:1fr}.appointment-info,.appointment-form-wrap{padding:30px 24px}.form-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.appointment-wrap{grid-template-columns:1fr}.appointment-info,.appointment-form-wrap{padding:30px 24px}.form-grid{grid-template-columns:1fr}.appointment-btn-grid{grid-template-columns:1fr !important}}
 </style>
 
 </head>
@@ -222,14 +222,28 @@
           </div>
           <div class="form-group full">
             <label>অতিরিক্ত তথ্য / সমস্যা</label>
-            <textarea name="message" placeholder="আপনার সমস্যা সংক্ষেপে লিখুন (ঐচ্ছিক)"></textarea>
+            <textarea name="message" placeholder="আপনার সমস্যা বা লক্ষণ সংক্ষেপে লিখুন (ঐচ্ছিক)"></textarea>
           </div>
-          <div class="form-group full">
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">
-              <i class="fa-solid fa-paper-plane"></i> অ্যাপয়েন্টমেন্ট জমা দিন
-            </button>
-            <div class="form-success" id="formSuccess">
-              <i class="fa-solid fa-circle-check"></i> ধন্যবাদ! আমরা শীঘ্রই যোগাযোগ করব।
+          <div class="form-group full" style="display:flex;flex-direction:column;gap:12px;margin-top:10px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="appointment-btn-grid">
+              <button type="submit" class="btn btn-primary" style="justify-content:center;padding:14px;font-size:1rem;">
+                <i class="fa-solid fa-calendar-check"></i> অনলাইনে জমা দিন
+              </button>
+              <button type="button" id="whatsappBookBtn" class="btn btn-accent" style="justify-content:center;padding:14px;background:#25d366;box-shadow:0 6px 18px rgba(37,211,102,0.35);font-size:1rem;">
+                <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> WhatsApp-এ বুক করুন
+              </button>
+            </div>
+            <div class="form-success" id="formSuccess" style="display:none;">
+              <div style="display:flex;align-items:flex-start;gap:12px;">
+                <i class="fa-solid fa-circle-check" style="font-size:1.8rem;color:var(--accent);margin-top:2px;"></i>
+                <div style="flex:1;">
+                  <h4 style="color:var(--text);font-size:1.05rem;margin-bottom:4px;">আপনার অ্যাপয়েন্টমেন্ট রিকোয়েস্ট সফলভাবে গৃহীত হয়েছে!</h4>
+                  <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:10px;" id="bookingDetailsSummary">হাসপাতাল থেকে দ্রুত ফোন করে সিরিয়াল নম্বর কনফার্ম করা হবে।</p>
+                  <a href="#" id="sendWaAfterSubmit" target="_blank" class="btn btn-accent" style="background:#25d366;font-size:0.85rem;padding:8px 16px;display:inline-flex;">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp-এও রিকোয়েস্ট পাঠান
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </form>

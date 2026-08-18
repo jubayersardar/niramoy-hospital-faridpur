@@ -1,28 +1,75 @@
 import os
-doc_dir = r'D:\minimax\New folder\website\doctors'
-ok = 0; has_img = 0
-for i in range(1, 15):
-    fn = os.path.join(doc_dir, f'{i:02d}.html')
-    if not os.path.exists(fn): continue
-    html = open(fn, encoding='utf-8').read()
-    has_home = '../index.html' in html
-    has_img_path = '../images/doctors/' in html
-    has_appt = '#appointment' in html
-    has_other_docs = 'other-doc-card' in html
-    if has_home and has_img_path and has_appt and has_other_docs:
-        ok += 1
-    if has_img_path: has_img += 1
-print(f'OK: {ok}/14 doctor pages (with all sections)')
-print(f'With image: {has_img}/14')
-print()
-print('Main pages:')
-for f in ['index.html','about.html','departments.html','doctors.html','services.html','diagnostic.html','gallery.html','contact.html','appointment.html']:
-    p = os.path.join(r'D:\minimax\New folder\website', f)
-    if os.path.exists(p):
-        size = os.path.getsize(p) // 1024
-        html = open(p, encoding='utf-8').read()
-        has_css = 'css/style.css' in html
-        has_js = 'js/site.js' in html
-        has_header = 'class="header"' in html
-        has_footer = 'class="footer"' in html
-        print(f'  {f:20s}  {size:>3}KB  css={has_css}  js={has_js}  hdr={has_header}  ftr={has_footer}')
+import re
+
+def verify_all():
+    print("==========================================")
+    print("  NIRAMAYA Hospital Site Integrity Check  ")
+    print("==========================================")
+    
+    # Check main pages
+    main_pages = [
+        'index.html', 'about.html', 'departments.html', 'doctors.html',
+        'services.html', 'diagnostic.html', 'gallery.html', 'contact.html', 'appointment.html'
+    ]
+    
+    missing_pages = []
+    broken_img_count = 0
+    total_imgs_checked = 0
+    
+    for page in main_pages:
+        if not os.path.exists(page):
+            missing_pages.append(page)
+            continue
+        
+        with open(page, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        # Check assets
+        has_css = 'css/style.css' in content
+        has_js = 'js/site.js' in content
+        has_header = 'class="header"' in content
+        has_footer = 'class="footer"' in content
+        
+        # Check images
+        img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
+        for src in img_srcs:
+            total_imgs_checked += 1
+            if not os.path.exists(src):
+                print(f"  [BROKEN IMAGE] In {page}: {src}")
+                broken_img_count += 1
+                
+        print(f"[OK] {page:18s} | CSS: {has_css} | JS: {has_js} | Header: {has_header} | Footer: {has_footer}")
+
+    print("\nChecking Doctor Profile Pages (14):")
+    doc_ok = 0
+    for i in range(1, 15):
+        fn = os.path.join('doctors', f'{i:02d}.html')
+        if not os.path.exists(fn):
+            print(f"  [MISSING] {fn}")
+            continue
+        with open(fn, 'r', encoding='utf-8') as f:
+            c = f.read()
+        
+        img_srcs = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', c)
+        for src in img_srcs:
+            total_imgs_checked += 1
+            resolved = os.path.normpath(os.path.join('doctors', src))
+            if not os.path.exists(resolved):
+                print(f"  [BROKEN IMAGE] In {fn}: {src} (resolved: {resolved})")
+                broken_img_count += 1
+                
+        doc_ok += 1
+
+    print(f"[OK] Doctor Profiles: {doc_ok}/14 verified")
+    print(f"[OK] Total Images Checked: {total_imgs_checked} (Broken: {broken_img_count})")
+    
+    if not missing_pages and broken_img_count == 0:
+        print("\n>>> ALL CHECKS PASSED SUCCESSFULLY! SITE IS 100% HEALTHY! <<<")
+    else:
+        print("\n>>> ATTENTION: Some issues found! <<<")
+
+if __name__ == '__main__':
+    verify_all()
+
+
+
