@@ -489,9 +489,8 @@
 
     let currentIndex = 0;
     const slideCount = slides.length;
-    const DURATION = 5500; // 5.5s per slide
+    const DURATION = 4200; // 4.2s per slide - prompt and smooth
     let timer = null;
-    let isPaused = false;
 
     function activateSlide(index) {
       if (index < 0) index = slideCount - 1;
@@ -541,7 +540,6 @@
 
     function startTimer() {
       stopTimer();
-      isPaused = false;
       timer = setInterval(nextSlide, DURATION);
     }
 
@@ -550,7 +548,6 @@
         clearInterval(timer);
         timer = null;
       }
-      isPaused = true;
     }
 
     // Button Controls
@@ -559,6 +556,8 @@
         nextSlide();
         startTimer();
       });
+      nextBtn.addEventListener('mouseenter', stopTimer);
+      nextBtn.addEventListener('mouseleave', startTimer);
     }
 
     if (prevBtn) {
@@ -566,9 +565,17 @@
         prevSlide();
         startTimer();
       });
+      prevBtn.addEventListener('mouseenter', stopTimer);
+      prevBtn.addEventListener('mouseleave', startTimer);
     }
 
     // Pill Controls
+    const progressNav = document.getElementById('heroProgressNav');
+    if (progressNav) {
+      progressNav.addEventListener('mouseenter', stopTimer);
+      progressNav.addEventListener('mouseleave', startTimer);
+    }
+
     pills.forEach(pill => {
       pill.addEventListener('click', () => {
         const idx = parseInt(pill.getAttribute('data-slide'), 10);
@@ -577,12 +584,6 @@
           startTimer();
         }
       });
-    });
-
-    // Pause on Hover
-    sliderSection.addEventListener('mouseenter', stopTimer);
-    sliderSection.addEventListener('mouseleave', () => {
-      startTimer();
     });
 
     // Touch Swipe Support for Mobile
@@ -611,7 +612,7 @@
       if (e.key === 'ArrowLeft') { prevSlide(); startTimer(); }
     });
 
-    // Initial Start
+    // Start immediately on load
     activateSlide(0);
     startTimer();
   })();
