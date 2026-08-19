@@ -170,13 +170,16 @@
 @media (max-width:480px){.dept-grid{grid-template-columns:repeat(2,1fr);gap:12px}.dept-card .dept-name{font-size:1.05rem !important;padding:14px 16px 16px}.dept-card .dept-name::after{left:16px;right:16px;bottom:6px;height:2px}}
 
 .doctors-section{background:#fff}
-.doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.doctors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media(max-width:1100px){.doctors-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:576px){.doctors-grid{grid-template-columns:1fr}}
+
 .doctor-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--transition);display:flex;flex-direction:column}
 .doctor-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(0,102,164,0.25)}
 .doctor-photo{position:relative;height:240px;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff}
 .doctor-photo .dept-tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.95);color:var(--text);padding:5px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;box-shadow:var(--shadow-sm)}
 .doctor-photo .avatar{width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.15);border:5px solid rgba(255,255,255,0.30);display:flex;align-items:center;justify-content:center;font-size:3.5rem;font-weight:700;color:#fff;backdrop-filter:blur(4px);box-shadow:0 12px 30px rgba(0,0,0,0.20)}
-.doctor-info{padding:22px;flex:1;display:flex;flex-direction:column}
+.doctor-info{padding:20px 18px;flex:1;display:flex;flex-direction:column}
 .doctor-info h3{font-size:1.12rem;margin-bottom:6px;line-height:1.35}
 .doctor-info .deg{color:var(--primary);font-size:0.82rem;font-weight:600;margin-bottom:8px;line-height:1.4}
 .doctor-info .designation{color:var(--text);font-size:0.86rem;font-weight:500;margin-bottom:6px}
@@ -186,7 +189,7 @@
 .doctor-photo-link::after{content:"\f0f4";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(255,255,255,0.95);color:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:all var(--transition)}
 .doctor-photo-link:hover::after{background:var(--primary);color:#fff;transform:scale(1.08) rotate(-8deg)}
 .doctor-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
-.doctor-actions .btn{margin-top:0;flex:1;min-width:120px;padding:10px 14px;font-size:0.82rem}
+.doctor-actions .btn{margin-top:0;flex:1;min-width:110px;padding:10px 12px;font-size:0.82rem}
 .doctor-schedule{margin:8px 0 12px;padding:10px 12px;background:var(--bg-soft);border-radius:8px;border-left:3px solid var(--accent);font-size:0.78rem;line-height:1.45}
 .doctor-schedule .sch-row{display:flex;align-items:center;gap:6px;color:var(--text)}
 .doctor-schedule .sch-row i{color:var(--accent);font-size:0.85rem;width:14px;text-align:center;flex-shrink:0}
@@ -218,9 +221,12 @@
 .partner-card h4{font-size:0.95rem;margin-bottom:4px}
 .partner-card p{font-size:0.78rem;color:var(--text-muted)}
 
-.gallery-preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.gallery-preview-grid img{width:100%;height:200px;object-fit:cover;border-radius:var(--radius);transition:transform 0.5s ease}
-.gallery-preview-grid img:hover{transform:scale(1.04)}
+.gallery-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery-preview-card{position:relative;border-radius:14px;overflow:hidden;height:220px;box-shadow:0 6px 20px rgba(0,30,60,0.08);background:#001a33;display:block;text-decoration:none}
+.gallery-preview-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);display:block}
+.gallery-preview-card:hover img{transform:scale(1.08)}
+.gallery-preview-card .gallery-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,18,36,0.80) 100%);pointer-events:none}
+.gallery-preview-card .gallery-card-title{position:absolute;bottom:12px;left:14px;right:14px;color:#fff;font-size:0.88rem;font-weight:600;margin:0;text-shadow:0 1px 4px rgba(0,0,0,0.8);z-index:2}
 
 @media (max-width:1024px){
   .hero-grid,.cta-banner-inner{grid-template-columns:1fr;gap:30px}
@@ -228,13 +234,16 @@
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
   .about-content{height:auto;justify-content:flex-start}
   .about-image img{max-height:380px}
+  .gallery-preview-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:768px){
   .hero{padding:40px 0 50px}
   .hero-stats{grid-template-columns:1fr 1fr}
-  .doctor-photo{height:200px}
-  .doctor-photo .avatar{width:130px;height:130px;font-size:3rem}
+  .doctor-photo{height:190px}
+  .doctor-photo .avatar{width:120px;height:120px;font-size:2.6rem}
   .about-image img{max-height:280px}
+  .gallery-preview-grid{grid-template-columns:1fr;gap:14px}
+  .gallery-preview-card{height:180px}
 }
 </style>
 
@@ -745,55 +754,9 @@
         </div>
       </div>
 
-      <div class="doctor-card reveal">
-        <a href="doctors/dr-shashanka-nag" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/05-shashank-nag.jpg?v=2" alt="ডা. শশাঙ্ক নাগ (সনেট)" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">শ</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. শশাঙ্ক নাগ (সনেট)</h3>
-          <p class="deg">MBBS, CCD, DMU, PGT</p>
-          <p class="designation">মেডিসিন, ডায়াবেটিস ও রোগ বিশেষজ্ঞ</p>
-          <div class="doctor-schedule">
-            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> সকাল ৯ - দুপুর ২ ও বিকাল ৫ - রাত ৯</div>
-            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০৩</div>
-          </div>
-          <div class="doctor-actions">
-            <a href="doctors/dr-shashanka-nag" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
-            <a href="appointment?doc=dr-shashanka-nag" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="doctor-card reveal">
-        <a href="doctors/dr-rafiqul-islam" class="doctor-photo-link" aria-label="প্রোফাইল দেখুন">
-          <div class="doctor-photo bg-med">
-            <span class="dept-tag">মেডিসিন</span>
-            <img src="images/doctors/06-rafiqul-islam.jpg" alt="ডা. মোহাম্মদ রফিকুল ইসলাম" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,0.30);" onerror="this.style.display='none';var n=this.nextElementSibling;if(n)n.style.display='flex';" />
-            <div class="avatar" style="display:none;">রফ</div>
-          </div>
-        </a>
-        <div class="doctor-info">
-          <h3>ডা. মোহাম্মদ রফিকুল ইসলাম</h3>
-          <p class="deg">MBBS, MPH, CCD, PHD (USA)</p>
-          <p class="designation">সহযোগী অধ্যাপক ও বিভাগীয় প্রধান, কমিউনিটি মেডিসিন</p>
-          <div class="doctor-schedule">
-            <div class="sch-row"><i class="fa-regular fa-clock"></i><span class="sch-label">সময়:</span> শনি - বৃহস্পতিবার বিকাল ৫:০০ - রাত ৮:৩০</div>
-            <div class="sch-row"><i class="fa-solid fa-door-open"></i><span class="sch-label">কক্ষ:</span> ১০৪</div>
-          </div>
-          <div class="doctor-actions">
-            <a href="doctors/dr-rafiqul-islam" class="btn btn-ghost"><i class="fa-solid fa-user-doctor"></i> প্রোফাইল</a>
-            <a href="appointment?doc=dr-rafiqul-islam" class="btn btn-accent"><i class="fa-regular fa-calendar-check"></i> সিরিয়াল নিন</a>
-          </div>
-        </div>
-      </div>
-
     </div>
     <div class="view-all-wrap">
-      <a href="doctors" class="btn btn-primary"><i class="fa-solid fa-user-doctor"></i> সকল ১৪ জন ডাক্তার দেখুন</a>
+      <a href="doctors" class="btn btn-primary" style="font-size:1.02rem;padding:13px 30px;"><i class="fa-solid fa-user-doctor"></i> সকল ১৪ জন বিশেষজ্ঞ ডাক্তার দেখুন <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -833,21 +796,47 @@
 </section>
 
 <!-- Gallery preview -->
-<section class="section section-soft">
+<section class="section section-soft" id="gallery">
   <div class="container">
     <div class="section-head">
       <span class="section-eyebrow">হাসপাতালের ছবি</span>
-      <h2 class="section-title">আমাদের <span class="gradient-text">পরিবেশ</span></h2>
-      <p class="section-subtitle">পরিচ্ছন্ন ও আরামদায়ক পরিবেশে আধুনিক সেবা</p>
+      <h2 class="section-title">আমাদের <span class="gradient-text">পরিবেশ ও সুবিধাসমূহ</span></h2>
+      <p class="section-subtitle">পরিচ্ছন্ন, মনোরম ও আধুনিক চিকিৎসা সরঞ্জামে সজ্জিত হাসপাতাল পরিবেশ</p>
     </div>
     <div class="gallery-preview-grid">
-      <img src="niramoy-aidfast-cover.jpg?v=2" alt="নিরাময় হাসপাতাল ভবন — দিনের দৃশ্য" loading="lazy" />
-      <img src="niramoy-archhms-gallery2.jpg?v=2" alt="নিরাময় হাসপাতালের মূল ভবন" loading="lazy" />
-      <img src="niramoy-archhms-header.jpg?v=2" alt="নিরাময় হাসপাতাল — সন্ধ্যার আলোয়" loading="lazy" />
-      <img src="images/niramoy-lounge.jpg?v=2" alt="রোগীদের বিশ্রামাগার" loading="lazy" />
+      <a href="gallery" class="gallery-preview-card" aria-label="রিসিপশন ও বিশ্রামাগার">
+        <img src="images/gallery/gallery-01.jpg" alt="রিসিপশন ও বিশ্রামাগার" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-hospital"></i> রিসিপশন ও রোগীর লাউঞ্জ</p>
+      </a>
+      <a href="gallery" class="gallery-preview-card" aria-label="অপারেশন থিয়েটার">
+        <img src="images/gallery/gallery-02.jpg" alt="অপারেশন থিয়েটার" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-bed-pulse"></i> আধুনিক অপারেশন থিয়েটার (OT)</p>
+      </a>
+      <a href="gallery" class="gallery-preview-card" aria-label="ডায়াগনস্টিক ল্যাবরেটরি">
+        <img src="images/gallery/gallery-03.jpg" alt="ডায়াগনস্টিক ল্যাবরেটরি" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-microscope"></i> ডায়াগনস্টিক ও প্যাথলজি ল্যাব</p>
+      </a>
+      <a href="gallery" class="gallery-preview-card" aria-label="ডাক্তার কনসালটেশন রুম">
+        <img src="images/gallery/gallery-04.jpg" alt="ডাক্তার কনসালটেশন রুম" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-stethoscope"></i> ডাক্তার কনসালটেশন চেম্বার</p>
+      </a>
+      <a href="gallery" class="gallery-preview-card" aria-label="ইনডোর পেশেন্ট কেবিন">
+        <img src="images/gallery/gallery-05.jpg" alt="ইনডোর পেশেন্ট কেবিন" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-procedures"></i> ইনডোর কেবিন ও রোগী সেবা</p>
+      </a>
+      <a href="gallery" class="gallery-preview-card" aria-label="মেডিকেল হেলথ টিম">
+        <img src="images/gallery/gallery-06.jpg" alt="মেডিকেল হেলথ টিম" loading="lazy" />
+        <div class="gallery-card-overlay"></div>
+        <p class="gallery-card-title"><i class="fa-solid fa-user-doctor"></i> নিবেদিত বিশেষজ্ঞ চিকিৎসক টিম</p>
+      </a>
     </div>
     <div class="view-all-wrap">
-      <a href="gallery" class="btn btn-outline"><i class="fa-solid fa-images"></i> সব ছবি দেখুন</a>
+      <a href="gallery" class="btn btn-primary" style="font-size:1.02rem;padding:13px 30px;"><i class="fa-solid fa-images"></i> সম্পূর্ণ ছবির গ্যালারি দেখুন <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
