@@ -9,7 +9,8 @@ def verify_all():
     # Check main pages
     main_pages = [
         'index.html', 'about.html', 'departments.html', 'doctors.html',
-        'services.html', 'diagnostic.html', 'gallery.html', 'contact.html', 'appointment.html'
+        'services.html', 'diagnostic.html', 'ambulance.html', 'packages.html',
+        'gallery.html', 'contact.html', 'appointment.html'
     ]
     
     missing_pages = []
