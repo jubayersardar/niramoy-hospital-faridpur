@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-<link rel="stylesheet" href="css/style.css?v=2.3" />
+<link rel="stylesheet" href="css/style.css?v=2.4" />
 
 <style>
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
@@ -81,7 +81,19 @@
       <nav class="nav">
         <ul class="nav-list">      <li class="nav-item"><a class="nav-link " href="./">হোম</a></li>
       <li class="nav-item"><a class="nav-link " href="about">আমাদের সম্পর্কে</a></li>
-      <li class="nav-item"><a class="nav-link " href="departments">বিভাগসমূহ</a></li>
+      <li class="nav-item has-dropdown">
+            <a class="nav-link" href="departments">বিভাগসমূহ <i class="fa-solid fa-chevron-down dd-arrow"></i></a>
+            <ul class="nav-dropdown">
+              <li><a href="medicine"><i class="fa-solid fa-stethoscope" style="color:#0066a4"></i> মেডিসিন</a></li>
+              <li><a href="surgery"><i class="fa-solid fa-user-md" style="color:#34495e"></i> সার্জারি</a></li>
+              <li><a href="gynae"><i class="fa-solid fa-venus" style="color:#c2185b"></i> গাইনি ও প্রসূতি</a></li>
+              <li><a href="orthopedics"><i class="fa-solid fa-bone" style="color:#e67e22"></i> অর্থোপেডিক্স</a></li>
+              <li><a href="ent"><i class="fa-solid fa-ear-listen" style="color:#16a085"></i> ইএনটি</a></li>
+              <li><a href="dermatology"><i class="fa-solid fa-allergies" style="color:#d35400"></i> চর্ম ও যৌন</a></li>
+              <li><a href="general-practice"><i class="fa-solid fa-user-doctor" style="color:#00a86b"></i> জেনারেল প্র্যাকটিশনার</a></li>
+              <li><a href="ultrasonography"><i class="fa-solid fa-baby-carriage" style="color:#2980b9"></i> আল্ট্রাসনোগ্রাফি</a></li>
+            </ul>
+          </li>
       <li class="nav-item"><a class="nav-link " href="doctors">ডাক্তারগণ</a></li>
       <li class="nav-item"><a class="nav-link " href="services">সেবাসমূহ</a></li>
       <li class="nav-item"><a class="nav-link " href="diagnostic">ডায়াগনস্টিক</a></li>
@@ -172,13 +184,13 @@
       <div class="footer-col">
         <h4>বিভাগসমূহ</h4>
         <ul>
-          <li><a href="departments#med">মেডিসিন</a></li>
-          <li><a href="departments#surg">সার্জারি</a></li>
-          <li><a href="departments#gynae">গাইনী ও প্রসূতি</a></li>
-          <li><a href="departments#ortho">অর্থোপেডিক্স</a></li>
-          <li><a href="departments#ent">ইএনটি</a></li>
-          <li><a href="departments#derma">চর্ম ও যৌন</a></li>
-          <li><a href="departments#sono">আল্ট্রাসনোগ্রাফি</a></li>
+          <li><a href="medicine">মেডিসিন</a></li>
+          <li><a href="surgery">সার্জারি</a></li>
+          <li><a href="gynae">গাইনী ও প্রসূতি</a></li>
+          <li><a href="orthopedics">অর্থোপেডিক্স</a></li>
+          <li><a href="ent">ইএনটি</a></li>
+          <li><a href="dermatology">চর্ম ও যৌন</a></li>
+          <li><a href="ultrasonography">আল্ট্রাসনোগ্রাফি</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -199,6 +211,26 @@
   <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
 </div>
-<script src="js/site.js?v=4"></script>
+<script src="js/site.js?v=6"></script>
+<script>
+(function () {
+  var items = document.querySelectorAll('.nav-item.has-dropdown');
+  items.forEach(function (item) {
+    var trigger = item.querySelector(':scope > .nav-link');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 992px)').matches) {
+        e.preventDefault();
+        item.classList.toggle('open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    items.forEach(function (item) {
+      if (!item.contains(e.target)) item.classList.remove('open');
+    });
+  });
+})();
+</script>
 </body>
 </html>

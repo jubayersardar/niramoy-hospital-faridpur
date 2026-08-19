@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-<link rel="stylesheet" href="css/style.css?v=2.3" />
+<link rel="stylesheet" href="css/style.css?v=2.4" />
 
 <style>
 
@@ -109,14 +109,16 @@
 .feature-card h3{font-size:1.05rem;margin-bottom:8px}
 .feature-card p{font-size:0.88rem;color:var(--text-muted)}
 
-.dept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.dept-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:all var(--transition);display:flex;flex-direction:column}
-.dept-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(0,102,164,0.30)}
-.dept-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin:0 auto 14px}
-.dept-card h3{font-size:1.05rem;margin-bottom:6px}
-.dept-card p{font-size:0.86rem;color:var(--text-muted);margin-bottom:14px;flex:1}
-.dept-link{color:var(--primary);font-weight:600;font-size:0.88rem;display:inline-flex;align-items:center;gap:6px}
-.dept-link:hover{gap:10px}
+.dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.dept-card{position:relative;display:block;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;background:#0a2540;border:1px solid var(--border);color:#fff !important;text-decoration:none;transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}
+.dept-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);color:#fff !important}
+.dept-card .dept-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.dept-card:hover .dept-img{transform:scale(1.08)}
+.dept-card .dept-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,0.55) 65%,rgba(0,0,0,0.85) 100%);pointer-events:none}
+.dept-card .dept-name{position:absolute;left:0;right:0;bottom:0;padding:16px 20px 18px;margin:0;color:#fff !important;font-size:1.25rem !important;font-weight:700;line-height:1.2;letter-spacing:0.01em;text-shadow:0 2px 10px rgba(0,0,0,0.85),0 1px 2px rgba(0,0,0,0.6);z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.45) 100%)}
+.dept-card .dept-name::after{content:"";position:absolute;left:20px;right:20px;bottom:8px;height:3px;background:var(--accent,#f0b400);border-radius:2px}
+@media (max-width:992px){.dept-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.dept-grid{grid-template-columns:repeat(2,1fr);gap:12px}.dept-card .dept-name{font-size:1.05rem !important;padding:14px 16px 16px}.dept-card .dept-name::after{left:16px;right:16px;bottom:6px;height:2px}}
 
 .doctors-section{background:#fff}
 .doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
@@ -241,7 +243,19 @@
       <nav class="nav">
         <ul class="nav-list">      <li class="nav-item"><a class="nav-link active" href="./">হোম</a></li>
       <li class="nav-item"><a class="nav-link " href="about">আমাদের সম্পর্কে</a></li>
-      <li class="nav-item"><a class="nav-link " href="departments">বিভাগসমূহ</a></li>
+      <li class="nav-item has-dropdown">
+            <a class="nav-link" href="departments">বিভাগসমূহ <i class="fa-solid fa-chevron-down dd-arrow"></i></a>
+            <ul class="nav-dropdown">
+              <li><a href="medicine"><i class="fa-solid fa-stethoscope" style="color:#0066a4"></i> মেডিসিন</a></li>
+              <li><a href="surgery"><i class="fa-solid fa-user-md" style="color:#34495e"></i> সার্জারি</a></li>
+              <li><a href="gynae"><i class="fa-solid fa-venus" style="color:#c2185b"></i> গাইনি ও প্রসূতি</a></li>
+              <li><a href="orthopedics"><i class="fa-solid fa-bone" style="color:#e67e22"></i> অর্থোপেডিক্স</a></li>
+              <li><a href="ent"><i class="fa-solid fa-ear-listen" style="color:#16a085"></i> ইএনটি</a></li>
+              <li><a href="dermatology"><i class="fa-solid fa-allergies" style="color:#d35400"></i> চর্ম ও যৌন</a></li>
+              <li><a href="general-practice"><i class="fa-solid fa-user-doctor" style="color:#00a86b"></i> জেনারেল প্র্যাকটিশনার</a></li>
+              <li><a href="ultrasonography"><i class="fa-solid fa-baby-carriage" style="color:#2980b9"></i> আল্ট্রাসনোগ্রাফি</a></li>
+            </ul>
+          </li>
       <li class="nav-item"><a class="nav-link " href="doctors">ডাক্তারগণ</a></li>
       <li class="nav-item"><a class="nav-link " href="services">সেবাসমূহ</a></li>
       <li class="nav-item"><a class="nav-link " href="diagnostic">ডায়াগনস্টিক</a></li>
@@ -488,65 +502,55 @@
 <section class="section" id="departments">
   <div class="container">
     <div class="section-head">
-      <span class="section-eyebrow">বিশেষায়িত বিভাগ</span>
       <h2 class="section-title">আমাদের <span class="gradient-text">বিভাগসমূহ</span></h2>
-      <p class="section-subtitle">সব বিভাগে অভিজ্ঞ বিশেষজ্ঞ চিকিৎসক ও আধুনিক সেবা</p>
     </div>
     <div class="dept-grid">
-      <a href="departments#med" class="dept-card">
-        <div class="dept-icon bg-med"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>মেডিসিন</h3>
-        <p>মেডিসিন বিশেষজ্ঞ পরামর্শ, ডায়াবেটিস, উচ্চ রক্তচাপ, হৃদরোগ</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="medicine" class="dept-card" aria-label="মেডিসিন বিভাগ">
+        <img class="dept-img" src="images/departments/dept-medicine.jpg?v=2" alt="মেডিসিন" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">মেডিসিন</h3>
       </a>
 
-      <a href="departments#surg" class="dept-card">
-        <div class="dept-icon bg-surg"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>সার্জারি</h3>
-        <p>জেনারেল ও ল্যাপারোস্কোপিক সার্জারি, কলোরেক্টাল, ইউরোলজি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="surgery" class="dept-card" aria-label="সার্জারি বিভাগ">
+        <img class="dept-img" src="images/departments/dept-surgery.jpg?v=2" alt="সার্জারি" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">সার্জারি</h3>
       </a>
 
-      <a href="departments#gynae" class="dept-card">
-        <div class="dept-icon bg-gynae"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>গাইনি ও প্রসূতি</h3>
-        <p>বন্ধ্যাত্ব, নরমাল ও সিজারিয়ান ডেলিভারি, মাসিক সমস্যা</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="gynae" class="dept-card" aria-label="গাইনি ও প্রসূতি বিভাগ">
+        <img class="dept-img" src="images/departments/dept-gynae.jpg?v=2" alt="গাইনি ও প্রসূতি" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">গাইনি ও প্রসূতি</h3>
       </a>
 
-      <a href="departments#ortho" class="dept-card">
-        <div class="dept-icon bg-ortho"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>অর্থোপেডিক্স</h3>
-        <p>হাড়-জোড়া, ফ্র্যাকচার, ট্রমা, বাতব্যথা, স্পোর্টস ইনজুরি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="orthopedics" class="dept-card" aria-label="অর্থোপেডিক্স বিভাগ">
+        <img class="dept-img" src="images/departments/dept-ortho.jpg?v=2" alt="অর্থোপেডিক্স" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">অর্থোপেডিক্স</h3>
       </a>
 
-      <a href="departments#ent" class="dept-card">
-        <div class="dept-icon bg-ent"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>ইএনটি</h3>
-        <p>নাক-কান-গলা, টনসিল, সাইনাস, হেড-নেক সার্জারি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="ent" class="dept-card" aria-label="ইএনটি বিভাগ">
+        <img class="dept-img" src="images/departments/dept-ent.jpg?v=2" alt="ইএনটি" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">ইএনটি</h3>
       </a>
 
-      <a href="departments#derma" class="dept-card">
-        <div class="dept-icon bg-derma"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>চর্ম ও যৌন</h3>
-        <p>এক্সিমা, সোরিয়াসিস, এলার্জি, যৌন রোগ, ব্রণ</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="dermatology" class="dept-card" aria-label="চর্ম ও যৌন বিভাগ">
+        <img class="dept-img" src="images/departments/dept-derma.jpg?v=2" alt="চর্ম ও যৌন" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">চর্ম ও যৌন</h3>
       </a>
 
-      <a href="departments#gp" class="dept-card">
-        <div class="dept-icon bg-gp"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>জেনারেল প্র্যাকটিশনার</h3>
-        <p>সব ধরনের সাধারণ রোগ, শিশু, মাইনর সার্জারি</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="general-practice" class="dept-card" aria-label="জেনারেল প্র্যাকটিশনার বিভাগ">
+        <img class="dept-img" src="images/departments/dept-gp.jpg?v=2" alt="জেনারেল প্র্যাকটিশনার" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">জেনারেল প্র্যাকটিশনার</h3>
       </a>
 
-      <a href="departments#sono" class="dept-card">
-        <div class="dept-icon bg-sono"><i class="fa-solid fa-stethoscope"></i></div>
-        <h3>আল্ট্রাসনোগ্রাফি</h3>
-        <p>সম্পূর্ণ USG, গর্ভাবস্থা, কিডনি-লিভার</p>
-        <span class="dept-link">বিস্তারিত <i class="fas fa-arrow-right"></i></span>
+      <a href="ultrasonography" class="dept-card" aria-label="আল্ট্রাসনোগ্রাফি বিভাগ">
+        <img class="dept-img" src="images/departments/dept-usg.jpg?v=2" alt="আল্ট্রাসনোগ্রাফি" loading="lazy" />
+        <div class="dept-overlay"></div>
+        <h3 class="dept-name">আল্ট্রাসনোগ্রাফি</h3>
       </a>
 
     </div>
@@ -801,13 +805,13 @@
       <div class="footer-col">
         <h4>বিভাগসমূহ</h4>
         <ul>
-          <li><a href="departments#med">মেডিসিন</a></li>
-          <li><a href="departments#surg">সার্জারি</a></li>
-          <li><a href="departments#gynae">গাইনী ও প্রসূতি</a></li>
-          <li><a href="departments#ortho">অর্থোপেডিক্স</a></li>
-          <li><a href="departments#ent">ইএনটি</a></li>
-          <li><a href="departments#derma">চর্ম ও যৌন</a></li>
-          <li><a href="departments#sono">আল্ট্রাসনোগ্রাফি</a></li>
+          <li><a href="medicine">মেডিসিন</a></li>
+          <li><a href="surgery">সার্জারি</a></li>
+          <li><a href="gynae">গাইনী ও প্রসূতি</a></li>
+          <li><a href="orthopedics">অর্থোপেডিক্স</a></li>
+          <li><a href="ent">ইএনটি</a></li>
+          <li><a href="dermatology">চর্ম ও যৌন</a></li>
+          <li><a href="ultrasonography">আল্ট্রাসনোগ্রাফি</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -828,6 +832,26 @@
   <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
 </div>
-<script src="js/site.js?v=4"></script>
+<script src="js/site.js?v=6"></script>
+<script>
+(function () {
+  var items = document.querySelectorAll('.nav-item.has-dropdown');
+  items.forEach(function (item) {
+    var trigger = item.querySelector(':scope > .nav-link');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 992px)').matches) {
+        e.preventDefault();
+        item.classList.toggle('open');
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    items.forEach(function (item) {
+      if (!item.contains(e.target)) item.classList.remove('open');
+    });
+  });
+})();
+</script>
 </body>
 </html>
