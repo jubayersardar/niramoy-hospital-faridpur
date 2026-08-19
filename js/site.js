@@ -164,6 +164,45 @@
     });
   })();
 
+  // ===== 7c. Make Whole Doctor Card Clickable =====
+  // Any click on .doctor-card (photo, name, schedule, anywhere except the
+  // explicit action buttons) navigates to the doctor's profile page.
+  (function makeDoctorCardsClickable() {
+    const cards = document.querySelectorAll('.doctor-card');
+    if (!cards.length) return;
+    cards.forEach(card => {
+      if (card.dataset.clickable === '1') return;
+      const link = card.querySelector('a.doctor-photo-link');
+      if (!link) return;
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      card.dataset.clickable = '1';
+      card.style.cursor = 'pointer';
+      card.setAttribute('role', 'link');
+      card.setAttribute('aria-label', 'ডাক্তারের প্রোফাইল দেখুন');
+      card.setAttribute('tabindex', '0');
+
+      const go = () => { window.location.href = href; };
+
+      card.addEventListener('click', function (e) {
+        // Let inner links/buttons keep their own behavior (profile button,
+        // appointment button, photo link, etc.)
+        if (e.target.closest('a, button')) return;
+        go();
+      });
+
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (e.target === card) {
+            e.preventDefault();
+            go();
+          }
+        }
+      });
+    });
+  })();
+
   // ===== 8. Filter Pills & Live Search on Doctors Page =====
   const pills = document.querySelectorAll('.filter-pill');
   const doctorGrid = document.getElementById('doctorsGrid');

@@ -34,18 +34,35 @@ NAV = '''      <li class="nav-item"><a class="nav-link __ACTIVE_HOME__" href="in
 TOPBAR = '''<div class="topbar">
   <div class="container">
     <div class="topbar-inner">
-      <div class="topbar-left">
-        <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
-        <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
-        <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
-        <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
+      <div class="topbar-track">
+        <div class="topbar-left">
+          <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
+          <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
+          <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
+          <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
+          <span class="topbar-social">
+            <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </span>
+        </div>
       </div>
-      <div class="topbar-right">
-        <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
-        <span class="topbar-social">
-          <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        </span>
+      <div class="topbar-track topbar-track-clone" aria-hidden="true">
+        <div class="topbar-left">
+          <span class="topbar-item topbar-badge"><i class="fa-solid fa-user-doctor"></i> <strong>১৪+ বিশেষজ্ঞ চিকিৎসক</strong></span>
+          <span class="topbar-item"><span class="emergency-badge"><i class="fa-solid fa-circle-exclamation"></i> ২৪/৭ ইমার্জেন্সি</span></span>
+          <span class="topbar-item"><i class="fa-solid fa-phone-volume"></i> <a href="tel:+8801729171549"><strong>০১৭২৯-১৭১৫৪৯</strong></a></span>
+          <span class="topbar-item"><i class="fa-solid fa-phone"></i> <a href="tel:+8801734089489"><strong>০১৭৩৪-০৮৯৪৮৯</strong></a></span>
+        </div>
+        <div class="topbar-right">
+          <span class="topbar-item"><i class="fa-solid fa-truck-medical"></i> <a href="tel:+8801731827110"><strong>০১৭৩১-৮২৭১১০</strong> (24/7)</a></span>
+          <span class="topbar-social">
+            <a href="https://www.facebook.com/p/%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A7%9F-%E0%A6%B9%E0%A6%B8%E0%A6%AA%E0%A6%BF%E0%A6%9F%E0%A6%BE%E0%A6%B2-%E0%A6%AB%E0%A6%B0%E0%A6%BF%E0%A6%A6%E0%A6%AA%E0%A7%81%E0%A6%B0-61577130113409/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </span>
+        </div>
       </div>
     </div>
   </div>
