@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-<link rel="stylesheet" href="css/style.css?v=2.4" />
+<link rel="stylesheet" href="css/style.css?v=2.9" />
 
 <style>
 .dept-detail{padding:80px 0;border-bottom:1px solid var(--border);scroll-margin-top:80px}
@@ -24,7 +24,7 @@
 .dept-detail h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px}
 .dept-detail .tagline{color:var(--accent);font-weight:600;font-size:0.95rem;margin-bottom:14px}
 .dept-detail .lead{color:var(--text-muted);font-size:1.02rem;line-height:1.7;margin-bottom:24px}
-.dept-detail-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:30px}
+.dept-detail-grid{display:grid;grid-template-columns:1fr;gap:0}
 .dept-services{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
 .dept-services h3,.dept-doctors-mini h3{font-size:1.1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;color:var(--primary)}
 .dept-services h3 i,.dept-doctors-mini h3 i{color:var(--accent)}
@@ -32,17 +32,22 @@
 .dept-services ul li{padding:8px 0 8px 26px;position:relative;color:var(--text-muted);font-size:0.92rem;border-bottom:1px dashed var(--border)}
 .dept-services ul li:last-child{border-bottom:none}
 .dept-services ul li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--accent);position:absolute;left:0;top:8px;font-size:0.78rem}
-.dept-doctors-mini{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
-.dept-doc-list{display:flex;flex-direction:column;gap:12px}
-.dept-doc-item{display:flex;align-items:center;gap:14px;padding:12px;border-radius:12px;background:var(--bg-soft);text-decoration:none;color:inherit;transition:all var(--transition);cursor:pointer;border:1px solid transparent}
-.dept-doc-item:hover{background:var(--primary-light);transform:translateX(6px);box-shadow:0 6px 16px rgba(0,102,164,0.15);border-color:rgba(0,102,164,0.20)}
-.dept-doc-avatar{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#fff;flex-shrink:0;position:relative;overflow:hidden;background:#0a2540}
-.dept-doc-avatar-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;border-radius:50%}
-.dept-doc-info h4{font-size:0.95rem;margin-bottom:2px;line-height:1.25;font-weight:700}
-.dept-doc-info p{font-size:0.78rem;color:var(--text-muted);margin:0}
+.dept-doctors-mini{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);margin-top:30px}
+.dept-doctors-mini h3{margin-bottom:18px}
+.dept-doc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.dept-doc-item{display:flex;flex-direction:column;background:var(--bg-soft);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:all .3s ease;border:1px solid var(--border);cursor:pointer;position:relative}
+.dept-doc-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:rgba(0,102,164,0.30);color:inherit}
+.dept-doc-item:hover .dept-doc-avatar-img{transform:scale(1.08)}
+.dept-doc-item::after{content:"\f061";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(255,255,255,0.95);color:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;opacity:0;transform:translateX(-6px);transition:all .25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.10);z-index:3}
+.dept-doc-item:hover::after{opacity:1;transform:translateX(0)}
+.dept-doc-avatar{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a2540,#1a4a7a);font-size:2.5rem;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
+.dept-doc-avatar-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform .5s ease}
+.dept-doc-info{padding:14px 16px 18px}
+.dept-doc-info h4{font-size:0.95rem;margin-bottom:4px;line-height:1.3;font-weight:700;color:var(--text)}
+.dept-doc-info p{font-size:0.78rem;color:var(--text-muted);margin:0;line-height:1.4}
 .dept-tech-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .dept-tech-pill{padding:5px 12px;background:var(--primary-light);color:var(--primary);border-radius:50px;font-size:0.78rem;font-weight:600}
-@media (max-width:768px){.dept-detail-head{grid-template-columns:1fr;text-align:center}.dept-detail-icon{margin:0 auto}.dept-detail-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.dept-detail-head{grid-template-columns:1fr;text-align:center}.dept-detail-icon{margin:0 auto}.dept-doc-list{grid-template-columns:repeat(2,1fr);gap:12px}.dept-doc-info{padding:10px 12px 14px}.dept-doc-info h4{font-size:0.85rem}.dept-doc-info p{font-size:0.72rem}}
 </style>
 
 </head>
@@ -625,7 +630,7 @@
   <a class="fab fab-whatsapp" href="https://wa.me/8801731827110" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   <a class="fab fab-call" href="tel:+8801731827110" aria-label="কল করুন"><i class="fa-solid fa-phone"></i></a>
 </div>
-<script src="js/site.js?v=6"></script>
+<script src="js/site.js?v=7"></script>
 <script>
 (function () {
   var items = document.querySelectorAll('.nav-item.has-dropdown');
